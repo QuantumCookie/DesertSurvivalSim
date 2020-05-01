@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6177e187ca3f145a14371991e67dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetDayLength: 13
+  _targetDayLength: 1
   _timeOfDay: 0.3
   _dayNumber: 0
   dailyRotation: {fileID: 8223809405614024773}
