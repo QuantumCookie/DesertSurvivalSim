@@ -6,11 +6,26 @@
     <e p="D:\Unity Projects\DesertSurvivalSim" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Event1.cs" t="Include" />
-        <e p="Event2.cs" t="Include" />
-        <e p="FloatVariable.cs" t="Include" />
-        <e p="Health.cs" t="Include" />
-        <e p="Master.cs" t="Include" />
+        <e p="_Scenes" t="Include">
+          <e p="Sample" t="Include">
+            <e p="Event1.cs" t="Include" />
+            <e p="Event2.cs" t="Include" />
+            <e p="FloatVariable.cs" t="Include" />
+            <e p="Health.cs" t="Include" />
+            <e p="Master.cs" t="Include" />
+          </e>
+        </e>
+        <e p="_Scripts" t="Include">
+          <e p="Desert" t="Include">
+            <e p="Desert_DayNightCycle.cs" t="Include" />
+            <e p="Desert_Master.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Player_Camera.cs" t="Include" />
+            <e p="Player_Master.cs" t="Include" />
+            <e p="Player_Movement.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="DesertSurvivalSim.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
