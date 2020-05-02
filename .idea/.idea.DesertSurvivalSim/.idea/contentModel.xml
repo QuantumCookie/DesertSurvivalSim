@@ -20,8 +20,19 @@
             <e p="Desert_DayNightCycle.cs" t="Include" />
             <e p="Desert_Master.cs" t="Include" />
           </e>
+          <e p="Inventory" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BaseObject.cs" t="Include" />
+              <e p="ConsumableObject.cs" t="Include" />
+              <e p="EquipmentObject.cs" t="Include" />
+              <e p="InventoryObject.cs" t="Include" />
+              <e p="Item.cs" t="Include" />
+              <e p="ResourceObject.cs" t="Include" />
+            </e>
+          </e>
           <e p="Player" t="Include">
             <e p="Player_Camera.cs" t="Include" />
+            <e p="Player_Inventory.cs" t="Include" />
             <e p="Player_Master.cs" t="Include" />
             <e p="Player_Movement.cs" t="Include" />
           </e>

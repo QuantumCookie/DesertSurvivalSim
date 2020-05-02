@@ -207,6 +207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8223809405494424476, guid: 85b6b6d84ecf9f74fad07f65c55a9051,
+        type: 3}
+      propertyPath: _targetDayLength
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8223809405494424477, guid: 85b6b6d84ecf9f74fad07f65c55a9051,
         type: 3}
       propertyPath: m_LocalPosition.x
