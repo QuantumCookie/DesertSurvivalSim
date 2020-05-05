@@ -7,21 +7,21 @@ public class Desert_DayNightCycle : MonoBehaviour
 {
     [SerializeField] [Range(0.1f, 13)]
     private float _targetDayLength = 0.5f; //in minutes
-    private float targetDayLength
+    public float targetDayLength
     {
         get { return _targetDayLength; }
     }
     
     [SerializeField] [Range(0, 1)] 
     private float _timeOfDay = 0.5f;
-    private float timeOfDay
+    public float timeOfDay
     {
         get { return _timeOfDay; }
     }
     
     [SerializeField]
     private int _dayNumber = 0;
-    private float dayNumber
+    public float dayNumber
     {
         get { return _dayNumber; }
     }

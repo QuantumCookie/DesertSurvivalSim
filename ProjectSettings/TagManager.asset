@@ -5,22 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Resource
-  - Terrain
-  - Slot
-  - Slots
-  - Hotbar
-  - EquipmentSystem
-  - Panel
-  - Tooltip
-  - DraggingItem
-  - ItemIcon
-  - Item
-  - CraftSystem
-  - ResultSlot
-  - Canvas
-  - EventSystem
-  - MainInventory
-  - Timer
+  - DesertManager
   layers:
   - Default
   - TransparentFX

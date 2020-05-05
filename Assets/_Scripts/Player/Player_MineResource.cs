@@ -24,6 +24,12 @@ public class Player_MineResource : MonoBehaviour
                 
                 inventory.AddItem(data.yield, data.quantity);
             }
+            else if (itemDetector.itemType != ItemType.Null)
+            {
+                Item_Master item = itemDetector.collider.transform.root.GetComponent<Item_Master>();
+                
+                inventory.AddItem(item.item, item.quantity);
+            }
         }
     }
 }

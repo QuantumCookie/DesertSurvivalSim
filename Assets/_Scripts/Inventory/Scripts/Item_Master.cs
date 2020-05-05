@@ -6,4 +6,5 @@ using UnityEngine;
 public class Item_Master: MonoBehaviour
 {
     public BaseObject item;
+    public int quantity;
 }

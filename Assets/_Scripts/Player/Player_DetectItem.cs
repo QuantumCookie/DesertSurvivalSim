@@ -42,34 +42,28 @@ public class Player_DetectItem : MonoBehaviour
         {
             Debug.Log("Hit something");
             _collider = hit.collider;
+            
             Resource_Master master = hit.collider.transform.root.GetComponent<Resource_Master>();
 
             if (master)
             {
                 _type = master.data.type;
                 Debug.Log("Looking at " + _type);
+                return;
             }
-            else
-            {
-                _type = ResourceType.Null;
-                Item_Master item = hit.collider.GetComponent<Item_Master>();
 
-                if (item)
-                {
-                    _itemType = item.item.itemType;
-                    Debug.Log("Looking at " + _type);
-                }
-                else
-                {
-                    _itemType = ItemType.Null;
-                }
+            Item_Master item = hit.collider.transform.root.GetComponent<Item_Master>();    
+            
+            if (item)
+            {
+                _itemType = item.item.itemType;
+                Debug.Log("Looking at " + _type);
+                return;
             }
         }
-        else
-        {
-            _type = ResourceType.Null;
-            _itemType = ItemType.Null;
-        }
+        
+        _type = ResourceType.Null;
+        _itemType = ItemType.Null;
     }
 
     private void OnDrawGizmos()

@@ -10,6 +10,7 @@
           <e p="Desert" t="Include">
             <e p="Desert_DayNightCycle.cs" t="Include" />
             <e p="Desert_Master.cs" t="Include" />
+            <e p="Desert_TemperatureCycle.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
             <e p="Scripts" t="Include">
@@ -25,10 +26,12 @@
           <e p="Player" t="Include">
             <e p="Player_Camera.cs" t="Include" />
             <e p="Player_DetectItem.cs" t="Include" />
+            <e p="Player_Hydration.cs" t="Include" />
             <e p="Player_Inventory.cs" t="Include" />
             <e p="Player_Master.cs" t="Include" />
             <e p="Player_MineResource.cs" t="Include" />
             <e p="Player_Movement.cs" t="Include" />
+            <e p="Player_TemperatureEffect.cs" t="Include" />
           </e>
           <e p="Resources" t="Include">
             <e p="Resource_Master.cs" t="Include" />
