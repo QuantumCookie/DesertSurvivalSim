@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory/New Inventory")]
 public class InventoryObject : ScriptableObject
 {
-    private List<InventorySlot> items = new List<InventorySlot>();
+    public List<InventorySlot> items = new List<InventorySlot>();
 
     public void AddItem(BaseObject item, int amount)
     {
@@ -12,10 +13,11 @@ public class InventoryObject : ScriptableObject
         
         for(int i = 0; i < items.Count; i++)
         {
-            if (items[i].Equals(item))
+            if (items[i].item.Equals(item))
             {
                 hasItem = true;
                 items[i].AddAmount(amount);
+                break;
             }
         }
 

@@ -6,6 +6,21 @@ TagManager:
   tags:
   - Resource
   - Terrain
+  - Slot
+  - Slots
+  - Hotbar
+  - EquipmentSystem
+  - Panel
+  - Tooltip
+  - DraggingItem
+  - ItemIcon
+  - Item
+  - CraftSystem
+  - ResultSlot
+  - Canvas
+  - EventSystem
+  - MainInventory
+  - Timer
   layers:
   - Default
   - TransparentFX
@@ -16,7 +31,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Resources
   - 
   - 
   - 
