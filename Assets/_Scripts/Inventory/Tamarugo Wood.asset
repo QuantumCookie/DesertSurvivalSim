@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872f6a698d700f3498a8e11cc218279d, type: 3}
   m_Name: Tamarugo Wood
   m_EditorClassIdentifier: 
-  id: 0
-  prefab: {fileID: 8695311973266258537, guid: 5d58484b74507c441b92057bd717685e, type: 3}
+  id: 4
   displaySprite: {fileID: 0}
   description: 
   itemType: 0

@@ -5,15 +5,15 @@ using UnityEngine;
 public class Player_MineResource : MonoBehaviour
 {
     private Player_DetectItem itemDetector;
-    private InventoryObject inventory;
+    private Player_Inventory inventory;
 
     private void Start()
     {
         itemDetector = GetComponent<Player_DetectItem>();
-        inventory = GetComponent<Player_Inventory>().inventory;
+        inventory = GetComponent<Player_Inventory>();
     }
 
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -35,5 +35,5 @@ public class Player_MineResource : MonoBehaviour
                 inventory.AddItem(item.item, item.quantity);
             }
         }
-    }*/
+    }
 }

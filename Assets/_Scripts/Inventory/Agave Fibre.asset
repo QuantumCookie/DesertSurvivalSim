@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872f6a698d700f3498a8e11cc218279d, type: 3}
   m_Name: Agave Fibre
   m_EditorClassIdentifier: 
-  id: 0
-  prefab: {fileID: 0}
+  id: 5
   displaySprite: {fileID: 0}
   description: 
   itemType: 0

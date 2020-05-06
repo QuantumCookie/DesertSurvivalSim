@@ -15,14 +15,25 @@ public class InventorySlot
     public BaseObject item;
     public int amount;
 
+    public InventorySlot()
+    {
+        item = null;
+        amount = -1;
+    }
+    
     public InventorySlot(BaseObject _item, int _amt)
     {
         item = _item;
         amount = _amt;
     }
 
-    public void AddAmount(int value)
+    public int AddAmount(int value)
     {
-        amount += value;
+        if (amount == -1) return value;
+
+        int amountToAdd = Mathf.Min(item.stackSize - amount, value);
+        amount += amountToAdd;
+
+        return value - amountToAdd;
     }
 }

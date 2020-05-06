@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a8ca7c9834b874a8f945abe9dcbfd2, type: 3}
   m_Name: Raw Agave Heart
   m_EditorClassIdentifier: 
-  id: 0
-  prefab: {fileID: 0}
+  id: 1
   displaySprite: {fileID: 0}
   description: 
   itemType: 2

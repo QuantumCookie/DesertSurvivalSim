@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Prickly Pear Fruit
   m_EditorClassIdentifier: 
   id: 0
-  prefab: {fileID: 8695311973266258537, guid: 5d58484b74507c441b92057bd717685e, type: 3}
   displaySprite: {fileID: 21300000, guid: 9272834dd827b7b4481fc99ea9f38974, type: 3}
   description: 
   itemType: 2
-  stackSize: 9
+  stackSize: 5

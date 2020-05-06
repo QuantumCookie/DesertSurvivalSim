@@ -11,7 +11,6 @@ public enum ItemType
 public abstract class BaseObject : ScriptableObject
 {
     public int id;
-    public GameObject prefab;
     public Sprite displaySprite;
     
     [Space]

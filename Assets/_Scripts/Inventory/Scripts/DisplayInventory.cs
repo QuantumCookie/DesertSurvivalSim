@@ -8,7 +8,54 @@ public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject playerInventory;
 
-    private Dictionary<InventorySlot, GameObject> itemsDisplayed;
+    public GameObject displaySlotPrefab;
+    
+    private GameObject[] display;
+
+    private void Start()
+    {
+        CreateDisplay();
+    }
+
+    private void CreateDisplay()
+    {
+        display = new GameObject[playerInventory.maxSlots];
+
+        for (int i = 0; i < playerInventory.maxSlots; i++)
+        {
+            GameObject go = Instantiate(displaySlotPrefab, Vector3.zero, Quaternion.identity, transform);
+
+            if (playerInventory.items[i].amount != -1)
+            {
+                go.GetComponentInChildren<TextMeshProUGUI>().text = playerInventory.items[i].amount.ToString();
+                go.GetComponentsInChildren<Image>()[1].sprite = playerInventory.items[i].item.displaySprite;
+            }
+            else
+            {
+                go.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                go.GetComponentsInChildren<Image>()[1].sprite = null;
+            }
+
+            display[i] = go;
+        }
+    }
+
+    private void Update()
+    {
+        UpdateDisplay();
+    }
+
+    private void UpdateDisplay()
+    {
+        for (int i = 0; i < playerInventory.maxSlots; i++)
+        {
+            if (playerInventory.items[i].amount != -1)
+            {
+                display[i].GetComponentInChildren<TextMeshProUGUI>().text = playerInventory.items[i].amount.ToString();
+                display[i].GetComponentsInChildren<Image>()[1].sprite = playerInventory.items[i].item.displaySprite;
+            }
+        }
+    }
 
     /*private void Start()
     {
