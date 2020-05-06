@@ -17,7 +17,7 @@ public class Player_Inventory : MonoBehaviour
 
         for (int i = 0; i < inventory.maxSlots; i++)
         {
-            inventory.items[i] = new InventorySlot();
+            inventory.items[i] = new InventorySlot(i);
         }
     }
 
@@ -47,9 +47,34 @@ public class Player_Inventory : MonoBehaviour
         
         //No space in inventory
     }
+
+    public void ClearSlot(int i)
+    {
+        inventory.items[i].item = null;
+        inventory.items[i].amount = -1;
+    }
+
+    public void SwapSlots(int i, int j)
+    {
+        if (i == j) return;
+        
+        InventorySlot a = inventory.items[i];
+        InventorySlot b = inventory.items[j];
+        
+        InventorySlot tmp = new InventorySlot(i);
+        
+        tmp.item = a.item;
+        tmp.amount = a.amount;
+
+        a.item = b.item;
+        a.amount = b.amount;
+
+        b.item = tmp.item;
+        b.amount = tmp.amount;
+    }
     
     private void OnApplicationQuit()
     {
-        //inventory.items.Clear();
+        inventory.items = new InventorySlot[inventory.maxSlots];
     }
 }

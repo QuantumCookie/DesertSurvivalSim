@@ -14,17 +14,20 @@ public class InventorySlot
 {
     public BaseObject item;
     public int amount;
+    public int slot;
 
-    public InventorySlot()
+    public InventorySlot(int _slot)
     {
         item = null;
         amount = -1;
+        slot = _slot;
     }
     
-    public InventorySlot(BaseObject _item, int _amt)
+    public InventorySlot(BaseObject _item, int _amt, int _slot)
     {
         item = _item;
         amount = _amt;
+        slot = _slot;
     }
 
     public int AddAmount(int value)
