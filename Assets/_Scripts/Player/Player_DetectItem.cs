@@ -16,19 +16,10 @@ public class Player_DetectItem : MonoBehaviour
     private ResourceType _type;
     private ItemType _itemType;
     private Collider _collider;
-    
-    public ResourceType type
-    {
-        get { return _type; }
-    }
-    public ItemType itemType
-    {
-        get { return _itemType; }
-    }
-    public Collider collider
-    {
-        get { return _collider; }
-    }
+
+    public ResourceType type => _type;
+    public ItemType itemType => _itemType;
+    public Collider collider => _collider;
     
     private void Start()
     {

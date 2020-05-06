@@ -20,9 +20,13 @@ public class Player_MineResource : MonoBehaviour
             Debug.Log("Pressed E");
             if (itemDetector.type != ResourceType.Null)
             {
-                ResourceSO data = itemDetector.collider.transform.root.GetComponent<Resource_Master>().data;
+                Resource_Master resource = itemDetector.collider.transform.root.GetComponent<Resource_Master>();
                 
-                inventory.AddItem(data.yield, data.quantity);
+                if(resource.ApplyDamage(30f))
+                {
+                    inventory.AddItem(resource.data.yield, resource.data.quantity);
+                    resource.CallMineComplete();
+                }
             }
             else if (itemDetector.itemType != ItemType.Null)
             {

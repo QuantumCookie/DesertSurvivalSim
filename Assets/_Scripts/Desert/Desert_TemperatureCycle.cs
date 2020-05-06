@@ -12,11 +12,7 @@ public class Desert_TemperatureCycle : MonoBehaviour
     private Desert_DayNightCycle dayNight;
 
     private float _temp;
-
-    public float Temperature
-    {
-        get { return _temp; }
-    }
+    public float Temperature => _temp;
 
     private float minTemp, maxTemp;
     

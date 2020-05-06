@@ -6,25 +6,19 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public List<InventorySlot> items = new List<InventorySlot>();
-
+    
     public void AddItem(BaseObject item, int amount)
     {
-        bool hasItem = false;
-        
         for(int i = 0; i < items.Count; i++)
         {
             if (items[i].item.Equals(item))
             {
-                hasItem = true;
                 items[i].AddAmount(amount);
-                break;
+                return;
             }
         }
 
-        if (!hasItem)
-        {
-            items.Add(new InventorySlot(item, amount));
-        }
+        items.Add(new InventorySlot(item, amount));
     }
 }
 
