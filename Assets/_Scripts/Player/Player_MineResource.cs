@@ -13,7 +13,7 @@ public class Player_MineResource : MonoBehaviour
         inventory = GetComponent<Player_Inventory>().inventory;
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -35,5 +35,5 @@ public class Player_MineResource : MonoBehaviour
                 inventory.AddItem(item.item, item.quantity);
             }
         }
-    }
+    }*/
 }

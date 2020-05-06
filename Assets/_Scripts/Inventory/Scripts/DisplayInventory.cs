@@ -10,7 +10,7 @@ public class DisplayInventory : MonoBehaviour
 
     private Dictionary<InventorySlot, GameObject> itemsDisplayed;
 
-    private void Start()
+    /*private void Start()
     {
         CreateDisplay();
     }
@@ -49,5 +49,5 @@ public class DisplayInventory : MonoBehaviour
             itemsDisplayed[playerInventory.items[i]].GetComponentsInChildren<Image>()[1].sprite =
                 playerInventory.items[i].item.displaySprite;
         }
-    }
+    }*/
 }
