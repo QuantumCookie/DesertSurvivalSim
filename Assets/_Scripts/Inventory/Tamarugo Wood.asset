@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 872f6a698d700f3498a8e11cc218279d, type: 3}
-  m_Name: Small Rocks
+  m_Name: Tamarugo Wood
   m_EditorClassIdentifier: 
-  id: 3
-  displaySprite: {fileID: 21300000, guid: 1ace59a208974e448946c9d75f486ded, type: 3}
+  id: 4
+  displaySprite: {fileID: 0}
   description: 
   itemType: 0
-  stackSize: 6
+  stackSize: 10

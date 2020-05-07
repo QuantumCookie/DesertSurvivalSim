@@ -35,6 +35,7 @@
           </e>
           <e p="Resources" t="Include">
             <e p="Resource_Master.cs" t="Include" />
+            <e p="Resource_MineComplete.cs" t="Include" />
             <e p="Resource_Tree.cs" t="Include" />
             <e p="ResourceSO.cs" t="Include" />
           </e>

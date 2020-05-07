@@ -43,7 +43,7 @@ public class Player_Hydration : MonoBehaviour
     {
         float currentSurvivalTime = maxSurvivalTime;
         computeHydration?.Invoke(ref currentSurvivalTime);
-        Debug.Log(currentSurvivalTime);
+        //Debug.Log(currentSurvivalTime);
         
         _dehydrationRate = (maxHydration * 0.4f) / (currentSurvivalTime * dayNight.targetDayLength); //maxHydration * 24 / (currentSurvivalTime * dayNight.targetDayLength * 60);
     }

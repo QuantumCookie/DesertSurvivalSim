@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872f6a698d700f3498a8e11cc218279d, type: 3}
-  m_Name: Small Rocks
+  m_Script: {fileID: 11500000, guid: 45a8ca7c9834b874a8f945abe9dcbfd2, type: 3}
+  m_Name: Prickly Pear Fruit
   m_EditorClassIdentifier: 
-  id: 3
-  displaySprite: {fileID: 21300000, guid: 1ace59a208974e448946c9d75f486ded, type: 3}
+  id: 0
+  displaySprite: {fileID: 21300000, guid: 9272834dd827b7b4481fc99ea9f38974, type: 3}
   description: 
-  itemType: 0
-  stackSize: 6
+  itemType: 2
+  stackSize: 5

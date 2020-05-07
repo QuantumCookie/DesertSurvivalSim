@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45a8ca7c9834b874a8f945abe9dcbfd2, type: 3}
-  m_Name: Cactus Leaf
+  m_Name: Raw Agave Heart
   m_EditorClassIdentifier: 
-  id: 0
-  prefab: {fileID: 8695311973266258537, guid: 5d58484b74507c441b92057bd717685e, type: 3}
-  displaySprite: {fileID: 21300000, guid: 9272834dd827b7b4481fc99ea9f38974, type: 3}
+  id: 1
+  displaySprite: {fileID: 0}
   description: 
   itemType: 2
-  stackSize: 9
+  stackSize: 0
