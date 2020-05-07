@@ -20,9 +20,12 @@ public class DisplayInventory : MonoBehaviour
     private GameObject lastActiveSlot;
     private bool slotOptionsActive = false;
     
+    private GameManager_Master gameManagerMaster;
+    
     private void Start()
     {
         inventoryScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Inventory>();
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         playerInventory = inventoryScript.inventory;
         
         CreateDisplay();
@@ -75,6 +78,8 @@ public class DisplayInventory : MonoBehaviour
 
     private void Update()
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         UpdateDisplay();
     }
 
@@ -107,6 +112,8 @@ public class DisplayInventory : MonoBehaviour
 
     private void OnPointerEnter(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         //Debug.Log("Pointer entered inventory slot " + map[go].slot);
         if (mouseItem.gameObject)
         {
@@ -116,6 +123,8 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnPointerExit(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         if (mouseItem.gameObject)
         {
             mouseItem.hoverSlot = null;
@@ -124,6 +133,8 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnBeginDrag(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         if(!slotOptionsActive && map[go].amount != -1)
         {
             mouseItem.origin = map[go];
@@ -142,6 +153,8 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnDrag(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         if (!slotOptionsActive && mouseItem.gameObject)
         {
             mouseItem.gameObject.GetComponent<RectTransform>().position = Input.mousePosition;
@@ -150,13 +163,11 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnEndDrag(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         if (slotOptionsActive || mouseItem.origin == null) return;
         
-        if (mouseItem.hoverSlot == null)
-        {
-            inventoryScript.ClearSlot(mouseItem.origin.slot);
-        }
-        else
+        if (mouseItem.hoverSlot != null)
         {
             inventoryScript.SwapSlots(mouseItem.origin.slot, mouseItem.hoverSlot.slot);
         }
@@ -166,6 +177,8 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnPointerClick(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         if (slotOptionsActive)
         {
             lastActiveSlot.transform.GetChild(2).gameObject.SetActive(false);
@@ -186,6 +199,8 @@ public class DisplayInventory : MonoBehaviour
 
     private void Use(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         //Debug.Log("Action at " + map[go].slot);
         inventoryScript.UseItem(map[go].slot);
         OnPointerClick(go);
@@ -193,6 +208,8 @@ public class DisplayInventory : MonoBehaviour
 
     private void Discard(GameObject go)
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
         //Debug.Log("Discard " + map[go].slot);
         inventoryScript.DiscardItem(map[go].slot);
         OnPointerClick(go);
@@ -211,6 +228,20 @@ public class DisplayInventory : MonoBehaviour
                 break;
         }
     }*/
+
+    private void OnDisable()
+    {
+        if (slotOptionsActive)
+        {
+            lastActiveSlot.transform.GetChild(2).gameObject.SetActive(false);
+            slotOptionsActive = false;
+        }
+
+        if (mouseItem.origin != null)
+        {
+            Destroy(mouseItem.gameObject);
+        }
+    }
 }
 
 public class MouseItem

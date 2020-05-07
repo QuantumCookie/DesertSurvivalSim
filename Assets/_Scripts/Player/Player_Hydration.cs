@@ -20,6 +20,8 @@ public class Player_Hydration : MonoBehaviour
     public delegate void ComputeEvent(ref float value);
     public event ComputeEvent computeHydration;
 
+    private GameManager_Master gameManagerMaster;
+    
     //Display
     public TextMeshProUGUI hydrationDisplay;
     [SerializeField] private float updateDelay = 0.5f;
@@ -28,12 +30,15 @@ public class Player_Hydration : MonoBehaviour
     private void Start()
     {
         dayNight = GameObject.FindGameObjectWithTag("DesertManager").GetComponent<Desert_DayNightCycle>();
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         _currentHydration = maxHydration;
         UpdateHydrationDisplay();
     }
 
     private void Update()
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         ComputeDehydrationRate();
         Dehydrate();
         UpdateHydrationDisplay();

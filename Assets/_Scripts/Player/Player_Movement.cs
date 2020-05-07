@@ -15,9 +15,18 @@ public class Player_Movement : MonoBehaviour
     public LayerMask floorMask;
     private float maxRaycastDistance = 100;
     private Quaternion newRotation;
-    
+
+    private GameManager_Master gameManagerMaster;
+
+    private void Start()
+    {
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
+    }
+
     void Update()
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         Move();
         Turn();
     }

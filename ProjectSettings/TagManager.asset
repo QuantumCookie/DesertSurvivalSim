@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Resource
   - DesertManager
+  - GameManager
   layers:
   - Default
   - TransparentFX

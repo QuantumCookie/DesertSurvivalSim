@@ -6,15 +6,19 @@ public class Player_MineResource : MonoBehaviour
 {
     private Player_DetectItem itemDetector;
     private Player_Inventory inventory;
+    private GameManager_Master gameManagerMaster;
 
     private void Start()
     {
         itemDetector = GetComponent<Player_DetectItem>();
         inventory = GetComponent<Player_Inventory>();
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
     }
 
     private void Update()
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log("Pressed E");

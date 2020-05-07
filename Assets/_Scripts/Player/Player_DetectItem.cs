@@ -9,8 +9,8 @@ public enum ResourceType
 
 public class Player_DetectItem : MonoBehaviour
 {
-    [SerializeField] private float scanDistance;
-    [SerializeField] private float scanRadius;
+    [SerializeField] private float scanDistance = 1.5f;
+    [SerializeField] private float scanRadius = 0.7f;
     [SerializeField] private LayerMask scanLayer;//for resources and items
     
     private ResourceType _type;
@@ -21,13 +21,18 @@ public class Player_DetectItem : MonoBehaviour
     public ItemType itemType => _itemType;
     public Collider collider => _collider;
     
+    private GameManager_Master gameManagerMaster;
+
     private void Start()
     {
         _type = ResourceType.Null;
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
     }
 
     private void Update()
     {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+        
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, scanRadius, transform.forward, out hit, scanDistance, scanLayer))
         {
@@ -57,9 +62,9 @@ public class Player_DetectItem : MonoBehaviour
         _itemType = ItemType.Null;
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, scanRadius);
         Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
-    }
+    }*/
 }
