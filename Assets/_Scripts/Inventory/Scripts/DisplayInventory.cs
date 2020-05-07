@@ -17,6 +17,8 @@ public class DisplayInventory : MonoBehaviour
     private Dictionary<GameObject, InventorySlot> map;
 
     private MouseItem mouseItem = new MouseItem();
+    private GameObject lastActiveSlot;
+    private bool slotOptionsActive = false;
     
     private void Start()
     {
@@ -48,10 +50,24 @@ public class DisplayInventory : MonoBehaviour
 
             AddEvent(go, EventTriggerType.PointerEnter, delegate { OnPointerEnter(go); });
             AddEvent(go, EventTriggerType.PointerExit, delegate { OnPointerExit(go); });
+            AddEvent(go, EventTriggerType.PointerClick, delegate { OnPointerClick(go); });
             AddEvent(go, EventTriggerType.BeginDrag, delegate { OnBeginDrag(go); });
             AddEvent(go, EventTriggerType.Drag, delegate { OnDrag(go); });
             AddEvent(go, EventTriggerType.EndDrag, delegate { OnEndDrag(go); });
 
+            Button[] options = go.GetComponentsInChildren<Button>();
+
+            options[0].onClick.AddListener(() => Use(go));
+            options[1].onClick.AddListener(() => Discard(go));
+            
+            /*for (int j = 0; j < options.Length; j++)
+            {
+                //Debug.Log(j);
+                options[j].onClick.RemoveAllListeners();
+                options[j].onClick.AddListener(() => SlotOptionClicked(go, j) );
+            }*/
+                
+            go.transform.GetChild(2).gameObject.SetActive(false);
             display[i] = go;
             map[go] = playerInventory.items[i];
         }
@@ -75,6 +91,7 @@ public class DisplayInventory : MonoBehaviour
             {
                 display[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
                 display[i].GetComponentsInChildren<Image>()[1].sprite = null;
+                display[i].transform.GetChild(2).gameObject.SetActive(false);
             }
         }
     }
@@ -107,7 +124,7 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnBeginDrag(GameObject go)
     {
-        if(map[go].amount != -1)
+        if(!slotOptionsActive && map[go].amount != -1)
         {
             mouseItem.origin = map[go];
             mouseItem.gameObject = new GameObject();
@@ -125,7 +142,7 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnDrag(GameObject go)
     {
-        if (mouseItem.gameObject)
+        if (!slotOptionsActive && mouseItem.gameObject)
         {
             mouseItem.gameObject.GetComponent<RectTransform>().position = Input.mousePosition;
         }
@@ -133,6 +150,8 @@ public class DisplayInventory : MonoBehaviour
     
     private void OnEndDrag(GameObject go)
     {
+        if (slotOptionsActive || mouseItem.origin == null) return;
+        
         if (mouseItem.hoverSlot == null)
         {
             inventoryScript.ClearSlot(mouseItem.origin.slot);
@@ -144,6 +163,54 @@ public class DisplayInventory : MonoBehaviour
         
         Destroy(mouseItem.gameObject);
     }
+    
+    private void OnPointerClick(GameObject go)
+    {
+        if (slotOptionsActive)
+        {
+            lastActiveSlot.transform.GetChild(2).gameObject.SetActive(false);
+            
+            slotOptionsActive = false;
+            return;
+        }
+        
+        if (map[go].amount != -1)
+        {
+            slotOptionsActive = true;
+            go.transform.GetChild(2).gameObject.SetActive(true);
+            lastActiveSlot = go;
+        }
+    }
+    
+    //Slot Options
+
+    private void Use(GameObject go)
+    {
+        //Debug.Log("Action at " + map[go].slot);
+        inventoryScript.UseItem(map[go].slot);
+        OnPointerClick(go);
+    }
+
+    private void Discard(GameObject go)
+    {
+        //Debug.Log("Discard " + map[go].slot);
+        inventoryScript.DiscardItem(map[go].slot);
+        OnPointerClick(go);
+    }
+    
+    /*private void SlotOptionClicked(GameObject go, int option)
+    {
+        Debug.Log("clicked " + option);
+        return;
+        switch (option)
+        {
+            case 0: Debug.Log("First option clicked");
+                break;
+            
+            case 1: inventoryScript.ClearSlot(map[go].slot);
+                break;
+        }
+    }*/
 }
 
 public class MouseItem

@@ -39,4 +39,10 @@ public class InventorySlot
 
         return value - amountToAdd;
     }
+
+    public void Decrement()
+    {
+        amount--;
+        if (amount <= 0) amount = -1;
+    }
 }

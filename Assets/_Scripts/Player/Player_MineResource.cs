@@ -17,7 +17,7 @@ public class Player_MineResource : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Pressed E");
+            //Debug.Log("Pressed E");
             if (itemDetector.type != ResourceType.Null)
             {
                 Resource_Master resource = itemDetector.collider.transform.root.GetComponent<Resource_Master>();

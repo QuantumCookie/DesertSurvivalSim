@@ -31,7 +31,7 @@ public class Player_DetectItem : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, scanRadius, transform.forward, out hit, scanDistance, scanLayer))
         {
-            Debug.Log("Hit something");
+            //Debug.Log("Hit something");
             _collider = hit.collider;
             
             Resource_Master master = hit.collider.transform.root.GetComponent<Resource_Master>();
@@ -39,7 +39,7 @@ public class Player_DetectItem : MonoBehaviour
             if (master)
             {
                 _type = master.data.type;
-                Debug.Log("Looking at " + _type);
+                //Debug.Log("Looking at " + _type);
                 return;
             }
 
@@ -48,7 +48,7 @@ public class Player_DetectItem : MonoBehaviour
             if (item)
             {
                 _itemType = item.item.itemType;
-                Debug.Log("Looking at " + _type);
+                //Debug.Log("Looking at " + _type);
                 return;
             }
         }

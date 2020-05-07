@@ -72,6 +72,23 @@ public class Player_Inventory : MonoBehaviour
         b.item = tmp.item;
         b.amount = tmp.amount;
     }
+
+    public void UseItem(int i)
+    {
+        InventorySlot slot = inventory.items[i];
+        
+        if (slot.item.itemType == ItemType.Consumable)
+        {
+            //Apply stats
+            inventory.items[i].Decrement();
+            Debug.Log("Consumed " + slot.item.name);
+        }
+    }
+
+    public void DiscardItem(int i)
+    {
+        ClearSlot(i);
+    }
     
     private void OnApplicationQuit()
     {

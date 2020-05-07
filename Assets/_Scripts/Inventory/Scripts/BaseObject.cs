@@ -23,4 +23,6 @@ public abstract class BaseObject : ScriptableObject
     [Space]
     
     public int stackSize;
+    
+    
 }
