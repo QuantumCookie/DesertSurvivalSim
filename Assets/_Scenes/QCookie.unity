@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &131026521
 Transform:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &143632229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Test Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590441794794195810, guid: 097a9e15393de45499bea5f0a108bb0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590441794794195814, guid: 097a9e15393de45499bea5f0a108bb0b,
         type: 3}
@@ -1496,7 +1501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &535929075
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1799,6 +1804,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: DesertManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8223809405494424451, guid: 85b6b6d84ecf9f74fad07f65c55a9051,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8223809405494424476, guid: 85b6b6d84ecf9f74fad07f65c55a9051,
         type: 3}
       propertyPath: _targetDayLength
@@ -1889,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612360772
 Transform:
   m_ObjectHideFlags: 0
@@ -2636,6 +2646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDesert
       objectReference: {fileID: 0}
+    - target: {fileID: 776997919340322544, guid: c5cd3c1c5da441048b250355970add05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 776997919340322548, guid: c5cd3c1c5da441048b250355970add05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2710,7 +2725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &867538081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,7 +2791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &878976217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3759,6 +3774,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 881206371}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393864935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393864937}
+  - component: {fileID: 1393864936}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1393864936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393864935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f20ca12b28f0f4b9451daa2123eb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aMax: 35
+  aMin: 16
+  aMedian: 25
+  bMax: 40.87
+  bMin: 32
+  bMedian: 37
+  bVal: 37
+  aVal: 16
+--- !u!4 &1393864937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393864935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1393952382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: a8c0531545cdbdb45917627e624cec90,
@@ -4807,7 +4873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1989594612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,6 +5156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357942208883234723, guid: 105f813afd0904a44b7c8908645991fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 105f813afd0904a44b7c8908645991fc, type: 3}

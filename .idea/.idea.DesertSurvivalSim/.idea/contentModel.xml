@@ -35,6 +35,7 @@
           </e>
           <e p="Player" t="Include">
             <e p="Player_Camera.cs" t="Include" />
+            <e p="Player_CoreTemperature.cs" t="Include" />
             <e p="Player_DetectItem.cs" t="Include" />
             <e p="Player_Hydration.cs" t="Include" />
             <e p="Player_Inventory.cs" t="Include" />
@@ -43,6 +44,7 @@
             <e p="Player_MineResource.cs" t="Include" />
             <e p="Player_Movement.cs" t="Include" />
             <e p="Player_TemperatureEffect.cs" t="Include" />
+            <e p="Test.cs" t="Include" />
           </e>
           <e p="Resources" t="Include">
             <e p="Resource_Master.cs" t="Include" />

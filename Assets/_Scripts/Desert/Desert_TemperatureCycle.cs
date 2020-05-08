@@ -15,6 +15,8 @@ public class Desert_TemperatureCycle : MonoBehaviour
     public float Temperature => _temp;
 
     private float minTemp, maxTemp;
+    public float MinTemperature => minTemp;
+    public float MaxTemperature => maxTemp;
     
     //Display
     public TextMeshProUGUI temperatureDisplay;
