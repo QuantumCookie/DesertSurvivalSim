@@ -7,11 +7,13 @@ public class Player_MineResource : MonoBehaviour
     private Player_DetectItem itemDetector;
     private Player_Inventory inventory;
     private GameManager_Master gameManagerMaster;
+    private Player_EquipmentManager equipment;
 
     private void Start()
     {
         itemDetector = GetComponent<Player_DetectItem>();
         inventory = GetComponent<Player_Inventory>();
+        equipment = GetComponent<Player_EquipmentManager>();
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
     }
 
@@ -22,7 +24,7 @@ public class Player_MineResource : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log("Pressed E");
-            if (itemDetector.type != ResourceType.Null)
+            if (equipment.CanMine(itemDetector.type))
             {
                 Resource_Master resource = itemDetector.collider.transform.root.GetComponent<Resource_Master>();
                 

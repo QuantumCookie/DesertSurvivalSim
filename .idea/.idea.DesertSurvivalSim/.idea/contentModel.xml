@@ -12,6 +12,10 @@
             <e p="Desert_Master.cs" t="Include" />
             <e p="Desert_TemperatureCycle.cs" t="Include" />
           </e>
+          <e p="Equipment" t="Include">
+            <e p="Equipment_Master.cs" t="Include" />
+            <e p="EquipmentSO.cs" t="Include" />
+          </e>
           <e p="GameManager" t="Include">
             <e p="GameManager_Cursor.cs" t="Include" />
             <e p="GameManager_GameOver.cs" t="Include" />
@@ -37,6 +41,7 @@
             <e p="Player_Camera.cs" t="Include" />
             <e p="Player_CoreTemperature.cs" t="Include" />
             <e p="Player_DetectItem.cs" t="Include" />
+            <e p="Player_EquipmentManager.cs" t="Include" />
             <e p="Player_Hydration.cs" t="Include" />
             <e p="Player_Inventory.cs" t="Include" />
             <e p="Player_InventoryUI.cs" t="Include" />
