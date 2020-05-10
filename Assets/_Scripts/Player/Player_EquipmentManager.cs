@@ -6,7 +6,8 @@ using UnityEngine;
 public class Player_EquipmentManager : MonoBehaviour
 {
     private List<Equipment_Master> list;
-    private Equipment_Master active;
+    private GameManager_Master gameManagerMaster;
+    private int activeIndex;
     private bool locked;
     
     private void Start()
@@ -17,6 +18,7 @@ public class Player_EquipmentManager : MonoBehaviour
     private void Initialize()
     {
         list = new List<Equipment_Master>(GetComponentsInChildren<Equipment_Master>());
+        gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         
         if(list.Count == 0) return;
 
@@ -26,13 +28,30 @@ public class Player_EquipmentManager : MonoBehaviour
         }
         
         list[0].gameObject.SetActive(true);
-        active = list[0];
+        activeIndex = 0;
         
         locked = false;
     }
 
+    private void Update()
+    {
+        if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CycleEquipment();
+        }
+    }
+
+    private void CycleEquipment()
+    {
+        list[activeIndex].gameObject.SetActive(false);
+        activeIndex = (activeIndex + 1) % list.Count;
+        list[activeIndex].gameObject.SetActive(true);
+    }
+
     public bool CanMine(ResourceType type)
     {
-        return !locked && active.equipment.harvests.Contains(type);
+        return !locked && list[activeIndex].equipment.harvests.Contains(type);
     }
 }

@@ -76,7 +76,8 @@ public class Desert_DayNightCycle : MonoBehaviour
     private void AdjustSunRotation()
     {
         float sunAngle = _timeOfDay * 360f;
-        dailyRotation.localRotation = Quaternion.Euler(0, 0, sunAngle);
+        float dailyVariation = _dayNumber * 5f;
+        dailyRotation.localRotation = Quaternion.Euler(dailyVariation, 0, sunAngle);
     }
 
     private void SunIntensity()

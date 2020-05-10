@@ -44,7 +44,7 @@ public class Player_DetectItem : MonoBehaviour
             if (master)
             {
                 _type = master.data.type;
-                //Debug.Log("Looking at " + _type);
+                Debug.Log("Looking at " + _type);
                 return;
             }
 
@@ -53,7 +53,7 @@ public class Player_DetectItem : MonoBehaviour
             if (item)
             {
                 _itemType = item.item.itemType;
-                //Debug.Log("Looking at " + _type);
+                Debug.Log("Looking at " + _type);
                 return;
             }
         }
@@ -62,9 +62,9 @@ public class Player_DetectItem : MonoBehaviour
         _itemType = ItemType.Null;
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, scanRadius);
         Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
-    }*/
+    }
 }

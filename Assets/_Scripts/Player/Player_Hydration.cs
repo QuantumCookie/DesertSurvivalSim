@@ -8,7 +8,7 @@ public class Player_Hydration : MonoBehaviour
     [SerializeField] private float maxSurvivalTime = 24; //How many real-time hours the player can survive from a full Hydration bar
     [SerializeField] private float maxHydration = 100f;
     
-    public float _currentHydration;
+    private float _currentHydration;
     public float currentHydration => _currentHydration;
     public float percent => _currentHydration / maxHydration;
 
@@ -40,8 +40,8 @@ public class Player_Hydration : MonoBehaviour
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
         
-        //ComputeDehydrationRate();
-        //Dehydrate();
+        ComputeDehydrationRate();
+        Dehydrate();
         UpdateHydrationDisplay();
     }
 
