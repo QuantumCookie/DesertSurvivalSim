@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1416603422}
-  m_IndirectSpecularColor: {r: 0.27188325, g: 0.24775848, b: 0.25092083, a: 1}
+  m_IndirectSpecularColor: {r: 0.27188334, g: 0.24775861, b: 0.2509212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3770,12 +3770,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ff1ae845951d74ca5b211cbe3d1493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {x: 500, y: 500, z: 0}
-  minX: 0
-  maxX: 50
-  minZ: 0
-  maxZ: 50
-  prefab: {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c, type: 3}
+  treePrefab: {fileID: 4989647788972249915, guid: c1e4cdaa7009dd945ad5c942a189909e,
+    type: 3}
+  treeProbability: 0.8
+  treeRadius: 20
+  bushPrefab: {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c,
+    type: 3}
+  bushProbability: 0.606
+  bushArea: {x: 10, y: 10}
+  bushRadius: 2
 --- !u!1001 &1537432554
 PrefabInstance:
   m_ObjectHideFlags: 0

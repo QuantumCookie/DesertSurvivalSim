@@ -52,12 +52,15 @@
             <e p="Player_TemperatureEffect.cs" t="Include" />
             <e p="Test.cs" t="Include" />
           </e>
+          <e p="PoissonDiscSampling.cs" t="Include" />
+          <e p="ProcBushGen.cs" t="Include" />
           <e p="Resources" t="Include">
             <e p="Resource_Master.cs" t="Include" />
             <e p="Resource_MineComplete.cs" t="Include" />
             <e p="Resource_Tree.cs" t="Include" />
             <e p="ResourceSO.cs" t="Include" />
           </e>
+          <e p="UniformPoissonDiskSampler.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
