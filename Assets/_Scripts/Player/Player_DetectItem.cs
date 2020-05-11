@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ResourceType
 {
-    Rock, Tree, Null
+    Rock, Tree, Cactus, Null
 }
 
 public class Player_DetectItem : MonoBehaviour
@@ -33,7 +33,7 @@ public class Player_DetectItem : MonoBehaviour
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
         
-        RaycastHit hit;
+        /*RaycastHit hit;
         if (Physics.SphereCast(transform.position, scanRadius, transform.forward, out hit, scanDistance, scanLayer))
         {
             //Debug.Log("Hit something");
@@ -56,6 +56,32 @@ public class Player_DetectItem : MonoBehaviour
                 Debug.Log("Looking at " + _type);
                 return;
             }
+        }*/
+
+        Collider[] hit = Physics.OverlapSphere(transform.position + transform.forward * scanDistance, scanRadius, scanLayer);
+        
+        if (hit.Length > 0)
+        {
+            //Debug.Log("Hit something");
+            _collider = hit[0];
+            
+            Resource_Master master = _collider.transform.root.GetComponent<Resource_Master>();
+
+            if (master)
+            {
+                _type = master.data.type;
+                Debug.Log("Looking at " + _type);
+                return;
+            }
+
+            Item_Master item = _collider.transform.root.GetComponent<Item_Master>();    
+            
+            if (item)
+            {
+                _itemType = item.item.itemType;
+                Debug.Log("Looking at " + _type);
+                return;
+            }
         }
         
         _type = ResourceType.Null;
@@ -64,7 +90,10 @@ public class Player_DetectItem : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, scanRadius);
+        /*Gizmos.DrawWireSphere(transform.position, scanRadius);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * scanDistance);*/
         Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
     }
 }

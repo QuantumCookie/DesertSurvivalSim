@@ -50,6 +50,7 @@
             <e p="Player_MineResource.cs" t="Include" />
             <e p="Player_Movement.cs" t="Include" />
             <e p="Player_TemperatureEffect.cs" t="Include" />
+            <e p="Player_UseItem.cs" t="Include" />
             <e p="Test.cs" t="Include" />
           </e>
           <e p="PoissonDiscSampling.cs" t="Include" />

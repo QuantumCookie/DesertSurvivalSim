@@ -59,6 +59,11 @@ public class Player_Hydration : MonoBehaviour
         _currentHydration -= _dehydrationRate * Time.deltaTime;
     }
 
+    public void Replenish(float value)
+    {
+        _currentHydration = Mathf.Min(_currentHydration + value, maxHydration);
+    }
+
     private void UpdateHydrationDisplay()
     {
         if (Time.time < lastUpdate + updateDelay) return;

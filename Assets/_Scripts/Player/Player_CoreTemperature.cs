@@ -10,11 +10,15 @@ public class Player_CoreTemperature : MonoBehaviour
     
     [SerializeField] private float idealMax = 40;
     [SerializeField] private float idealMin = 35;
-    [SerializeField] private float criticalMax = 43;
-    [SerializeField] private float criticalMin = 30;
+    [SerializeField] private float criticalMax = 42;
+    [SerializeField] private float criticalMin = 32;
 
     [SerializeField] private float environmentMedian = 25;
     [SerializeField] private float bodyMedian = 37;
+
+    public AnimationCurve curve;
+    [Range(0, 1)] public float t = 0;
+    public float value;
     
     private Desert_TemperatureCycle temperatureScript;
     private Player_Hydration hydrationScript;
@@ -32,6 +36,7 @@ public class Player_CoreTemperature : MonoBehaviour
 
     private void Update()
     {
+        value = curve.Evaluate(t);
         UpdateTemperature();
 
         if (Time.time > lastUpdate + updateDelay)
@@ -42,7 +47,7 @@ public class Player_CoreTemperature : MonoBehaviour
 
     private float InverseLerp(float a, float b, float val)
     {
-        return (b - val) / (b - a);
+        return (val - a) / (b - a);
     }
 
     private float Lerp(float a, float b, float t)
@@ -57,8 +62,13 @@ public class Player_CoreTemperature : MonoBehaviour
         float envTemp = temperatureScript.Temperature;
 
         float delta = InverseLerp(envMin, envMax, envTemp);
-        float f = hydrationScript.percent * 0.5f;
-        _coreTemperature = Lerp(criticalMin, criticalMax, delta * delta * delta);
+        float hydrationPercent = hydrationScript.percent * 0.2f;
+        delta = Mathf.Clamp(delta, hydrationPercent, 1 - hydrationPercent);
+
+        _coreTemperature = curve.Evaluate(delta);
+        
+        /*float f = hydrationScript.percent * 0.5f;
+        _coreTemperature = Lerp(criticalMin, criticalMax, delta * delta * delta);*/
     }
 
     private void UpdateUI()

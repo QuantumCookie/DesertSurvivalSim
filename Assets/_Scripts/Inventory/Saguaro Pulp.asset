@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Saguaro Pulp
   m_EditorClassIdentifier: 
   id: 2
-  displaySprite: {fileID: 0}
+  displaySprite: {fileID: 21300000, guid: c44c85bacc84ff44fa68096802306c58, type: 3}
   description: 
   itemType: 2
-  stackSize: 0
+  stackSize: 4
+  attributes:
+  - type: 0
+    value: 20
+  - type: 1
+    value: 0

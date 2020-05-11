@@ -9,6 +9,8 @@ public class Player_EquipmentManager : MonoBehaviour
     private GameManager_Master gameManagerMaster;
     private int activeIndex;
     private bool locked;
+
+    public float damage => list[activeIndex].equipment.damage;
     
     private void Start()
     {

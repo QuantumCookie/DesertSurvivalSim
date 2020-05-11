@@ -28,7 +28,7 @@ public class Player_MineResource : MonoBehaviour
             {
                 Resource_Master resource = itemDetector.collider.transform.root.GetComponent<Resource_Master>();
                 
-                if(resource.ApplyDamage(30f))
+                if(resource.ApplyDamage(equipment.damage))
                 {
                     inventory.AddItem(resource.data.yield, resource.data.quantity);
                     resource.CallMineComplete();

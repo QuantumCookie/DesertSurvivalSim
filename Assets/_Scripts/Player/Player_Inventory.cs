@@ -6,9 +6,17 @@ public class Player_Inventory : MonoBehaviour
 {
     public InventoryObject inventory;
 
+    private Player_UseItem useHandler;
+
     private void Start()
     {
+        Initialize();
         CreateInventory();
+    }
+
+    private void Initialize()
+    {
+        useHandler = GetComponent<Player_UseItem>();
     }
 
     private void CreateInventory()
@@ -79,7 +87,7 @@ public class Player_Inventory : MonoBehaviour
         
         if (slot.item.itemType == ItemType.Consumable)
         {
-            //Apply stats
+            useHandler.UseItem(slot.item);
             inventory.items[i].Decrement();
             Debug.Log("Consumed " + slot.item.name);
         }

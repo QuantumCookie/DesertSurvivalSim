@@ -8,6 +8,18 @@ public enum ItemType
     Resource, Equipment, Consumable, Null
 }
 
+public enum ItemAttributeType
+{
+    Hydration, Hunger, Damage
+}
+
+[System.Serializable]
+public class ItemAttribute
+{
+    public ItemAttributeType type;
+    public float value;
+}
+
 public abstract class BaseObject : ScriptableObject
 {
     public int id;
@@ -23,6 +35,6 @@ public abstract class BaseObject : ScriptableObject
     [Space]
     
     public int stackSize;
-    
-    
+
+    public ItemAttribute[] attributes;
 }
