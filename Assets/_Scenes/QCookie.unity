@@ -512,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 8590441794794195814, guid: 097a9e15393de45499bea5f0a108bb0b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 338.2
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 8590441794794195814, guid: 097a9e15393de45499bea5f0a108bb0b,
         type: 3}
@@ -522,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 8590441794794195814, guid: 097a9e15393de45499bea5f0a108bb0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -281.6
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 8590441794794195814, guid: 097a9e15393de45499bea5f0a108bb0b,
         type: 3}
@@ -3344,6 +3344,9 @@ MonoBehaviour:
     subclusterRadius: 50
     objectRadius: 3
     objectProbability: 0.3
+  bushPrefab:
+  - {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c, type: 3}
+  bushRadius: 10
 --- !u!1 &1573673246
 GameObject:
   m_ObjectHideFlags: 0
