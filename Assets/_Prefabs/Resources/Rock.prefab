@@ -22,7 +22,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4875198550087733671}
-  - component: {fileID: 8458542147386382261}
   - component: {fileID: 4875198550087733668}
   - component: {fileID: 4875198550087733670}
   m_Layer: 9
@@ -30,7 +29,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4875198550087733671
 Transform:
@@ -47,22 +46,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &8458542147386382261
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875198550087733669}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4875198550087733668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,17 +136,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d489032c5cdc5e74da4638fb5e515035,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 400
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d489032c5cdc5e74da4638fb5e515035,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 400
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d489032c5cdc5e74da4638fb5e515035,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 400
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: d489032c5cdc5e74da4638fb5e515035,
         type: 3}
@@ -179,6 +162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d489032c5cdc5e74da4638fb5e515035,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d489032c5cdc5e74da4638fb5e515035, type: 3}

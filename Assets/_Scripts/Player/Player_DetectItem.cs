@@ -13,11 +13,11 @@ public class Player_DetectItem : MonoBehaviour
     [SerializeField] private float scanRadius = 0.7f;
     [SerializeField] private LayerMask scanLayer;//for resources and items
     
-    private ResourceType _type;
+    private ResourceType _resourceType;
     private ItemType _itemType;
     private Collider _collider;
 
-    public ResourceType type => _type;
+    public ResourceType resourceType => _resourceType;
     public ItemType itemType => _itemType;
     public Collider collider => _collider;
     
@@ -25,7 +25,7 @@ public class Player_DetectItem : MonoBehaviour
 
     private void Start()
     {
-        _type = ResourceType.Null;
+        _resourceType = ResourceType.Null;
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
     }
 
@@ -33,45 +33,61 @@ public class Player_DetectItem : MonoBehaviour
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
         
+        Scan();
+        HandleResult();
+    }
+
+    private void Scan()
+    {
+        Collider[] hit = Physics.OverlapSphere(transform.position, scanRadius, scanLayer);
+        if (hit.Length > 0)
+        {
+            Vector3 toCollider = hit[0].transform.position - transform.position;
+            float dot = Vector3.Dot(toCollider, transform.forward);
+
+            //Debug.Log("Found something");
+            
+            if (dot > 0.5f)
+            {
+                _collider = hit[0];
+                return;
+            }
+        }
+
+        _collider = null;
+
         /*RaycastHit hit;
         if (Physics.SphereCast(transform.position, scanRadius, transform.forward, out hit, scanDistance, scanLayer))
         {
             //Debug.Log("Hit something");
             _collider = hit.collider;
-            
-            Resource_Master master = hit.collider.transform.root.GetComponent<Resource_Master>();
-
-            if (master)
-            {
-                _type = master.data.type;
-                Debug.Log("Looking at " + _type);
-                return;
-            }
-
-            Item_Master item = hit.collider.transform.root.GetComponent<Item_Master>();    
-            
-            if (item)
-            {
-                _itemType = item.item.itemType;
-                Debug.Log("Looking at " + _type);
-                return;
-            }
-        }*/
-
-        Collider[] hit = Physics.OverlapSphere(transform.position + transform.forward * scanDistance, scanRadius, scanLayer);
-        
-        if (hit.Length > 0)
+        }
+        else
         {
-            //Debug.Log("Hit something");
-            _collider = hit[0];
-            
+            _collider = null;
+        }*/
+    }
+    
+    private void HandleResult()
+    {
+        if (_collider == null)
+        {
+            _resourceType = ResourceType.Null;
+            _itemType = ItemType.Null;
+            Debug.Log("Looking at nothing");
+        }
+        else
+        {
             Resource_Master master = _collider.transform.root.GetComponent<Resource_Master>();
 
             if (master)
             {
-                _type = master.data.type;
-                Debug.Log("Looking at " + _type);
-                return;
+                _resourceType = master.data.type;
+                Debug.Log("Looking at " + _resourceType);
+            }
+            else
+            {
+                _resourceType = ResourceType.Null;
             }
 
             Item_Master item = _collider.transform.root.GetComponent<Item_Master>();    
@@ -79,13 +95,13 @@ public class Player_DetectItem : MonoBehaviour
             if (item)
             {
                 _itemType = item.item.itemType;
-                Debug.Log("Looking at " + _type);
-                return;
+                Debug.Log("Looking at " + _resourceType);
+            }
+            else
+            {
+                _itemType = ItemType.Null;
             }
         }
-        
-        _type = ResourceType.Null;
-        _itemType = ItemType.Null;
     }
 
     private void OnDrawGizmos()
@@ -94,6 +110,9 @@ public class Player_DetectItem : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * scanDistance);*/
-        Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
+        //Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, scanRadius);
     }
 }

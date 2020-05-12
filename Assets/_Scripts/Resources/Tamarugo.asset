@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   damageNeeded: 50
-  yield: {fileID: 11400000, guid: 0639cab0897996c44837eb0ea52b68ec, type: 2}
+  yield: {fileID: 11400000, guid: dfd1861de77ed124086810c038e4c91e, type: 2}
   quantity: 3
