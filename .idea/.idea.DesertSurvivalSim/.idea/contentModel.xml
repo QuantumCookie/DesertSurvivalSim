@@ -13,6 +13,7 @@
             <e p="Desert_ResourceGenerator.cs" t="Include" />
             <e p="Desert_TemperatureCycle.cs" t="Include" />
           </e>
+          <e p="EnvironmentGenerator.cs" t="Include" />
           <e p="Equipment" t="Include">
             <e p="Equipment_Master.cs" t="Include" />
             <e p="EquipmentSO.cs" t="Include" />

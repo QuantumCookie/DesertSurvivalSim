@@ -162,6 +162,21 @@ namespace AwesomeNamespace
         {
             return new Vector2((int) ((point.x - origin.x) / cellSize), (int) ((point.y - origin.y) / cellSize));
         }
+        
+        public static float NextGaussian() 
+        {
+            float v1, v2, s;
+            do 
+            {
+                v1 = 2.0f * (float)RandomHelper.Random.NextDouble() - 1.0f;
+                v2 = 2.0f * (float)RandomHelper.Random.NextDouble() - 1.0f;
+                s = v1 * v1 + v2 * v2;
+            } while (s >= 1.0f || s == 0f);
+    
+            s = Mathf.Sqrt((-2.0f * Mathf.Log(s)) / s);
+     
+            return v1 * s;
+        }
     }
     
     public static class RandomHelper
