@@ -16,8 +16,9 @@ public class EnvironmentGenerator : MonoBehaviour
     [Header("Secondary Bush")] [Space]
     public GameObject[] bushPrefab;
     public float bushRadius;
+    [Header("General Cluster")] [Space] public Cluster generalCluster;
 
-    private List<GameObject> trees, rocks, cacti;
+    private List<GameObject> trees, rocks, cacti, general;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class EnvironmentGenerator : MonoBehaviour
         GenerateRockClusters();
         GenerateTreeClusters();
         GenerateCactusClusters();
+        GenerateGeneralCluster();
         GenerateSecondaryBushes();
         yield return null;
     }
@@ -39,6 +41,7 @@ public class EnvironmentGenerator : MonoBehaviour
         trees = new List<GameObject>();
         rocks = new List<GameObject>();
         cacti = new List<GameObject>();
+        general = new List<GameObject>();
     }
     
     private void GenerateTreeClusters()
@@ -108,7 +111,7 @@ public class EnvironmentGenerator : MonoBehaviour
             subPos.y = 0;
 
             List<Vector2> points = UniformPoissonDiskSampler.SampleCircle(new Vector2(subPos.x, subPos.z), rockCluster.subclusterRadius, rockCluster.objectRadius);
-            Debug.Log(points.Count);
+//            Debug.Log(points.Count);
 
             for (int j = 0; j < points.Count; j++)
             {
@@ -123,7 +126,8 @@ public class EnvironmentGenerator : MonoBehaviour
                 if (Random.value > rockCluster.objectProbability) continue;
                 
                 GameObject go = Instantiate(GetRandom(rockCluster.objectPrefab), treePos, Quaternion.identity);
-                go.transform.localScale = go.transform.localScale * (Vector3.Distance(subPos, treePos) / rockCluster.subclusterRadius) * Random.Range(0.7f, 1f);
+                float scaleFactor = (1 / (1 + 0.1f * Vector3.Distance(treePos, subPos)));
+                go.transform.localScale = go.transform.localScale * scaleFactor * Random.Range(0.7f, 1f);
                 go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
                 
                 rocks.Add(go);
@@ -131,20 +135,84 @@ public class EnvironmentGenerator : MonoBehaviour
         }
     }
 
+    private void GenerateGeneralCluster()
+    {
+        List<Vector2> points = UniformPoissonDiskSampler.SampleCircle(new Vector2(generalCluster.location.position.x, generalCluster.location.position.z), generalCluster.radius, generalCluster.objectRadius);
+//        Debug.Log("Success " + points.Count);
+
+        for (int j = 0; j < points.Count; j++)
+        {
+            Vector3 treePos = new Vector3(points[j].x, 0, points[j].y);
+            treePos += treePos * (1 - UniformPoissonDiskSampler.NextGaussian());
+            
+            RaycastHit hit;
+            if (!Physics.Raycast(treePos + Vector3.up * 200, Vector3.down, out hit, 250, groundMask)) continue;
+            treePos.y = hit.point.y;
+
+//                if (Physics.OverlapSphere(treePos, generalCluster.objectRadius, resourceMask).Length > 0)continue;
+            if (Random.value > generalCluster.objectProbability) continue;
+            
+            GameObject go = Instantiate(GetRandom(generalCluster.objectPrefab), treePos, Quaternion.identity);
+            float scaleFactor = 1;
+            go.transform.localScale = go.transform.localScale * scaleFactor * Random.Range(0.7f, 1f);
+            go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
+            
+            general.Add(go);
+        }
+        
+        /*for (int i = 0; i < generalCluster.subclusters; i++)
+        {
+            Vector3 subPos = generalCluster.location.position + Random.insideUnitSphere * generalCluster.radius;//y coord doesn't matter
+            subPos.y = 0;
+
+            List<Vector2> points = UniformPoissonDiskSampler.SampleCircle(new Vector2(subPos.x, subPos.z), generalCluster.subclusterRadius, generalCluster.objectRadius);
+            Debug.Log(points.Count);
+
+            for (int j = 0; j < points.Count; j++)
+            {
+                Vector3 treePos = new Vector3(points[j].x, 0, points[j].y);
+                treePos += (treePos - subPos) * UniformPoissonDiskSampler.NextGaussian();
+                
+                RaycastHit hit;
+                if (!Physics.Raycast(treePos + Vector3.up * 200, Vector3.down, out hit, 250, groundMask)) return;
+                treePos.y = hit.point.y;
+
+                if (Physics.OverlapSphere(treePos, generalCluster.objectRadius, resourceMask).Length > 0)continue;
+                if (Random.value > generalCluster.objectProbability) continue;
+                
+                GameObject go = Instantiate(GetRandom(generalCluster.objectPrefab), treePos, Quaternion.identity);
+                float scaleFactor = 1;
+                go.transform.localScale = go.transform.localScale * scaleFactor * Random.Range(0.7f, 1f);
+                go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
+                
+                general.Add(go);
+            }
+        }*/
+    }
+
     private void GenerateSecondaryBushes()
     {
-        for (int i = 0; i < trees.Count; i++)
+        GenerateAround(trees);
+        GenerateAround(rocks);
+        GenerateAround(cacti);
+        GenerateAround(general);
+    }
+
+    private void GenerateAround(List<GameObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
         {
             for (int j = 0; j < 50; j++)
             {
-                Vector3 bushPos = trees[i].transform.position + Random.insideUnitSphere * UniformPoissonDiskSampler.NextGaussian() * bushRadius;
+                Vector3 bushPos = list[i].transform.position + Random.insideUnitSphere * UniformPoissonDiskSampler.NextGaussian() * bushRadius;
                 
                 RaycastHit hit;
                 if (!Physics.Raycast(bushPos + Vector3.up * 200, Vector3.down, out hit, 250, groundMask)) return;
                 bushPos.y = hit.point.y;
                 
                 GameObject go = Instantiate(GetRandom(bushPrefab), bushPos, Quaternion.identity);
-                go.transform.localScale = go.transform.localScale * ( 1 / (1 + 0.2f * Vector3.Distance(bushPos, trees[i].transform.position))) * Random.Range(0.7f, 1f);
+                float scaleFactor = (1 / (1 + 0.2f * Vector3.Distance(bushPos, list[i].transform.position)));
+                go.transform.localScale = go.transform.localScale * Mathf.Min(scaleFactor, list[i].transform.localScale.x) * Random.Range(0.7f, 1f);
                 go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
             }
         }

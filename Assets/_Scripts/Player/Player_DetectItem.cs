@@ -39,13 +39,15 @@ public class Player_DetectItem : MonoBehaviour
 
     private void Scan()
     {
+//        Debug.Log("Found something");
+
         Collider[] hit = Physics.OverlapSphere(transform.position, scanRadius, scanLayer);
         if (hit.Length > 0)
         {
             Vector3 toCollider = hit[0].transform.position - transform.position;
             float dot = Vector3.Dot(toCollider, transform.forward);
 
-            //Debug.Log("Found something");
+//            Debug.Log("Found something");
             
             if (dot > 0.5f)
             {
@@ -74,16 +76,16 @@ public class Player_DetectItem : MonoBehaviour
         {
             _resourceType = ResourceType.Null;
             _itemType = ItemType.Null;
-            Debug.Log("Looking at nothing");
+//            Debug.Log("Looking at nothing");
         }
         else
         {
-            Resource_Master master = _collider.transform.root.GetComponent<Resource_Master>();
+            Resource_Master master = _collider.transform.root.GetComponent<Resource_Master>();//For this to work item / resource should be a root object in the scene
 
             if (master)
             {
                 _resourceType = master.data.type;
-                Debug.Log("Looking at " + _resourceType);
+//                Debug.Log("Looking at " + _resourceType);
             }
             else
             {
@@ -95,7 +97,7 @@ public class Player_DetectItem : MonoBehaviour
             if (item)
             {
                 _itemType = item.item.itemType;
-                Debug.Log("Looking at " + _resourceType);
+//                Debug.Log("Looking at " + _resourceType);
             }
             else
             {

@@ -12,4 +12,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9c81c32522a5e409af6e24e678aeb4, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  items: []
+  maxSlots: 25
+  items:
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0
+  - item: {fileID: 0}
+    amount: 0
+    slot: 0

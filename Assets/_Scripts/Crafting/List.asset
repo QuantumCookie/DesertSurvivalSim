@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872f6a698d700f3498a8e11cc218279d, type: 3}
-  m_Name: Small Rocks
+  m_Script: {fileID: 11500000, guid: 4251943f9dcdf6940a20204a0473e74f, type: 3}
+  m_Name: List
   m_EditorClassIdentifier: 
-  id: 3
-  displaySprite: {fileID: 21300000, guid: 0fe7fd44fbe21f04399d1547f397036c, type: 3}
-  description: 
-  itemType: 0
-  stackSize: 6
-  attributes: []
+  list:
+  - {fileID: 11400000, guid: 67d061e4cc4491840a4bc722253119ab, type: 2}
+  - {fileID: 11400000, guid: b098015db14d26a429be4e36741975d0, type: 2}

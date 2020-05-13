@@ -7,6 +7,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_Scripts" t="Include">
+          <e p="Crafting" t="Include">
+            <e p="CraftableItem.cs" t="Include" />
+            <e p="DisplayCraftingSystem.cs" t="Include" />
+            <e p="RecipeListObject.cs" t="Include" />
+            <e p="RecipeObject.cs" t="Include" />
+          </e>
           <e p="Desert" t="Include">
             <e p="Desert_DayNightCycle.cs" t="Include" />
             <e p="Desert_Master.cs" t="Include" />
@@ -42,6 +48,8 @@
           <e p="Player" t="Include">
             <e p="Player_Camera.cs" t="Include" />
             <e p="Player_CoreTemperature.cs" t="Include" />
+            <e p="Player_Crafting.cs" t="Include" />
+            <e p="Player_CraftingUI.cs" t="Include" />
             <e p="Player_DetectItem.cs" t="Include" />
             <e p="Player_EquipmentManager.cs" t="Include" />
             <e p="Player_Hydration.cs" t="Include" />

@@ -56,6 +56,40 @@ public class Player_Inventory : MonoBehaviour
         //No space in inventory
     }
 
+    public void RemoveItem(BaseObject _item, int _amt)
+    {
+        //At this point it is guaranteed that the inventory contains at least <_amt> number of items
+        for (int i = 0; i < inventory.items.Length; i++)
+        {
+            if (inventory.items[i].item == _item)
+            {
+                if (inventory.items[i].amount > _amt)
+                {
+                    inventory.items[i].amount -= _amt;
+                }
+                else
+                {
+                    _amt -= inventory.items[i].amount;
+                    ClearSlot(i);
+                }
+
+                if (_amt <= 0) return;
+            }
+        }
+    }
+
+    public int GetTotalItemCount(BaseObject _item)
+    {
+        int count = 0;
+
+        for (int i = 0; i < inventory.items.Length; i++)
+        {
+            if (inventory.items[i].amount != -1 && inventory.items[i].item == _item) count += inventory.items[i].amount;
+        }
+
+        return count;
+    }
+
     public void ClearSlot(int i)
     {
         inventory.items[i].item = null;
