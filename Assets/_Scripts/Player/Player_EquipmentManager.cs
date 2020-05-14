@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player_EquipmentManager : MonoBehaviour
 {
+    public Transform equipmentRoot;
     private List<Equipment_Master> list;
     private GameManager_Master gameManagerMaster;
     private int activeIndex;
@@ -19,7 +20,7 @@ public class Player_EquipmentManager : MonoBehaviour
 
     private void Initialize()
     {
-        list = new List<Equipment_Master>(GetComponentsInChildren<Equipment_Master>());
+        list = new List<Equipment_Master>(equipmentRoot.GetComponentsInChildren<Equipment_Master>());
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         
         if(list.Count == 0) return;

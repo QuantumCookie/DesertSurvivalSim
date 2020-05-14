@@ -42,7 +42,6 @@ public class Player_Camera : MonoBehaviour
 
         //Camera Follow
         playerCamera.transform.position = Vector3.SmoothDamp(playerCamera.transform.position, transform.position + cameraOffset, ref cameraSmoothVelocity, cameraSmoothTime);
-        playerCamera.transform.rotation = Quaternion.Slerp(playerCamera.transform.rotation, Quaternion.LookRotation(transform.position - playerCamera.transform.position, Vector3.up), playerRotationSmoothing * Time.deltaTime);
 
         /*//Setup camera offset
         Vector3 cameraOffset = new Vector3(-cameraDistance.x, cameraHeight, -cameraDistance.y);

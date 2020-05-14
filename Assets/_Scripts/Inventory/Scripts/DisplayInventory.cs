@@ -12,6 +12,7 @@ public class DisplayInventory : MonoBehaviour
     private InventoryObject playerInventory;
 
     public GameObject displaySlotPrefab;
+    public Sprite blankSprite;
     
     private GameObject[] display;
     private Dictionary<GameObject, InventorySlot> map;
@@ -48,7 +49,7 @@ public class DisplayInventory : MonoBehaviour
             else
             {
                 go.GetComponentInChildren<TextMeshProUGUI>().text = "";
-                go.GetComponentsInChildren<Image>()[1].sprite = null;
+                go.GetComponentsInChildren<Image>()[1].sprite = blankSprite;
             }
 
             AddEvent(go, EventTriggerType.PointerEnter, delegate { OnPointerEnter(go); });
@@ -95,7 +96,7 @@ public class DisplayInventory : MonoBehaviour
             else
             {
                 display[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
-                display[i].GetComponentsInChildren<Image>()[1].sprite = null;
+                display[i].GetComponentsInChildren<Image>()[1].sprite = blankSprite;
                 display[i].transform.GetChild(2).gameObject.SetActive(false);
             }
         }

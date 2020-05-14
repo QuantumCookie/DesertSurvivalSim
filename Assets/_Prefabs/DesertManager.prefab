@@ -104,8 +104,6 @@ GameObject:
   - component: {fileID: 8223809405494424450}
   - component: {fileID: 8223809405494424476}
   - component: {fileID: 1495629125}
-  - component: {fileID: 1495629126}
-  - component: {fileID: 1495629127}
   - component: {fileID: 1495629131}
   m_Layer: 0
   m_Name: DesertManager
@@ -205,82 +203,6 @@ MonoBehaviour:
   minTemperature: {x: 16, y: 18}
   maxTemperature: {x: 32, y: 34}
   temperatureDisplay: {fileID: 0}
---- !u!114 &1495629126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223809405494424451}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e05da9ca24076b4985f0dd6e592ca5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrain: {fileID: 0}
-  resolution: 10
-  resourceLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  areas:
-  - origin: {x: 0, y: 0, z: 0}
-    radius: 500
-    data:
-    - resource: {fileID: 11400000, guid: da0d90f24d88d9b41be194234419bf3c, type: 2}
-      prefab: {fileID: 4989647788972249915, guid: c1e4cdaa7009dd945ad5c942a189909e,
-        type: 3}
-      probability: 0.7
-      radius: 5
-    - resource: {fileID: 11400000, guid: 5a26168e828aaf942990a7bc79e2dbb6, type: 2}
-      prefab: {fileID: 4875198550087733669, guid: 00f6fc1fc9a05a742847151d35fddb15,
-        type: 3}
-      probability: 0.5
-      radius: 10
-  - origin: {x: 0, y: 0, z: 0}
-    radius: 1000
-    data:
-    - resource: {fileID: 0}
-      prefab: {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c,
-        type: 3}
-      probability: 1
-      radius: 0.1
---- !u!114 &1495629127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223809405494424451}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ff1ae845951d74ca5b211cbe3d1493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  treePrefab: {fileID: 4989647788972249915, guid: c1e4cdaa7009dd945ad5c942a189909e,
-    type: 3}
-  treeProbability: 0.119
-  treeArea: {x: 1000, y: 1000}
-  treeRadius: 20
-  rockPrefab: {fileID: 4875198550087733669, guid: 00f6fc1fc9a05a742847151d35fddb15,
-    type: 3}
-  rockProbability: 0.111
-  rockArea: 10
-  bushPrefab: {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c,
-    type: 3}
-  bushProbability: 0.771
-  bushArea: 20
-  bushRadius: 2
-  patchPrefab: {fileID: 3542348771539691446, guid: 2076f3cf86bf3df4893c9665894404d3,
-    type: 3}
-  patchProbability: 0.071
-  patchRadius: 2
-  cactusPrefab: {fileID: 307099551473393161, guid: c16c96b777a14ef47b473aed8ad07ec5,
-    type: 3}
-  cactusProbability: 0.114
-  cactusRadius: 5
 --- !u!114 &1495629131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +257,20 @@ MonoBehaviour:
   bushPrefab:
   - {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c, type: 3}
   bushRadius: 10
+  generalCluster:
+    objectPrefab:
+    - {fileID: 4875198550087733669, guid: 00f6fc1fc9a05a742847151d35fddb15, type: 3}
+    - {fileID: 4989647788972249915, guid: c1e4cdaa7009dd945ad5c942a189909e, type: 3}
+    - {fileID: 7742696196716612315, guid: 76455f1c8e274bb4abcf528cd0db3c9c, type: 3}
+    - {fileID: 5051858068639472821, guid: 256262dfac8aea44c96b84a04aebf3bb, type: 3}
+    - {fileID: 6147674528410987640, guid: cf77d2c87d780484dbf836edc8976ff2, type: 3}
+    - {fileID: 3471054126171841992, guid: dc58c8d01cbe87d438d4fed01d771456, type: 3}
+    location: {fileID: 0}
+    radius: 600
+    subclusters: 20
+    subclusterRadius: 100
+    objectRadius: 20
+    objectProbability: 0.2
 --- !u!1 &8223809405614024778
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@
               <e p="EquipmentObject.cs" t="Include" />
               <e p="InventoryObject.cs" t="Include" />
               <e p="Item_Master.cs" t="Include" />
+              <e p="Item_PricklyPear.cs" t="Include" />
               <e p="ResourceObject.cs" t="Include" />
             </e>
           </e>
@@ -46,6 +47,7 @@
             <e p="MainMenuManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="Player_Animation.cs" t="Include" />
             <e p="Player_Camera.cs" t="Include" />
             <e p="Player_CoreTemperature.cs" t="Include" />
             <e p="Player_Crafting.cs" t="Include" />
