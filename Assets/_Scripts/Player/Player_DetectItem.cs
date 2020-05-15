@@ -12,6 +12,7 @@ public class Player_DetectItem : MonoBehaviour
     [SerializeField] private float scanDistance = 1.5f;
     [SerializeField] private float scanRadius = 0.7f;
     [SerializeField] private LayerMask scanLayer;//for resources and items
+    public GameObject interactPrompt;
     
     private ResourceType _resourceType;
     private ItemType _itemType;
@@ -26,6 +27,7 @@ public class Player_DetectItem : MonoBehaviour
     private void Start()
     {
         _resourceType = ResourceType.Null;
+        interactPrompt.SetActive(false);
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
     }
 
@@ -76,6 +78,7 @@ public class Player_DetectItem : MonoBehaviour
         {
             _resourceType = ResourceType.Null;
             _itemType = ItemType.Null;
+            interactPrompt.SetActive(false);
 //            Debug.Log("Looking at nothing");
         }
         else
@@ -103,6 +106,9 @@ public class Player_DetectItem : MonoBehaviour
             {
                 _itemType = ItemType.Null;
             }
+            
+            interactPrompt.SetActive(true);
+            interactPrompt.transform.position = Camera.main.WorldToScreenPoint(_collider.transform.root.position);
         }
     }
 

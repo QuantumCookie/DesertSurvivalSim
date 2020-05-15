@@ -6,7 +6,7 @@ using UnityEngine;
 public class EquipmentSO : ScriptableObject
 {
     public int id;
-    public GameObject prefab;
+    public EquipmentObject inventoryItem;
     public float damage;
     public ResourceType[] harvests;
 }

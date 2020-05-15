@@ -18,3 +18,4 @@ MonoBehaviour:
   itemType: 1
   stackSize: 1
   attributes: []
+  prefab: {fileID: 6441461168396458949, guid: 934ffd645e8faea409c7c09caf159e7f, type: 3}

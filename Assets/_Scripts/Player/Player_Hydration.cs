@@ -8,7 +8,7 @@ public class Player_Hydration : MonoBehaviour
     [SerializeField] private float maxSurvivalTime = 24; //How many real-time hours the player can survive from a full Hydration bar
     [SerializeField] private float maxHydration = 100f;
     
-    private float _currentHydration;
+    [Range(0, 100)]public float _currentHydration;
     public float currentHydration => _currentHydration;
     public float percent => _currentHydration / maxHydration;
 
@@ -24,7 +24,8 @@ public class Player_Hydration : MonoBehaviour
     private GameManager_Master gameManagerMaster;
     
     //Display
-    public TextMeshProUGUI hydrationDisplay;
+    //public TextMeshProUGUI hydrationDisplay;
+    public RectTransform hydrationDisplay;
     [SerializeField] private float updateDelay = 0.5f;
     private float lastUpdate;
 
@@ -57,6 +58,11 @@ public class Player_Hydration : MonoBehaviour
     private void Dehydrate()
     {
         _currentHydration -= _dehydrationRate * Time.deltaTime;
+
+        if (_currentHydration <= 0)
+        {
+            gameManagerMaster.CallGameOverEvent();
+        }
     }
 
     public void Replenish(float value)
@@ -68,7 +74,10 @@ public class Player_Hydration : MonoBehaviour
     {
         if (Time.time < lastUpdate + updateDelay) return;
         
-        hydrationDisplay.text = Mathf.RoundToInt(_currentHydration * 100 / maxHydration).ToString() + "%";
+        //hydrationDisplay.text = Mathf.RoundToInt(_currentHydration * 100 / maxHydration).ToString() + "%";
+        Vector3 scale = hydrationDisplay.localScale;
+        scale.x = percent;
+        hydrationDisplay.localScale = scale;
         lastUpdate = Time.time;
     }
 }

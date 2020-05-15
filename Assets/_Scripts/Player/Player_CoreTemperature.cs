@@ -8,17 +8,15 @@ public class Player_CoreTemperature : MonoBehaviour
     private float _coreTemperature = 37;
     public float coreTemperature => _coreTemperature;
     
-    [SerializeField] private float idealMax = 40;
-    [SerializeField] private float idealMin = 35;
+    [SerializeField] private float idealMax = 37.6f;
+    [SerializeField] private float idealMin = 36.8f;
     [SerializeField] private float criticalMax = 42;
     [SerializeField] private float criticalMin = 32;
 
-    [SerializeField] private float environmentMedian = 25;
-    [SerializeField] private float bodyMedian = 37;
+    //[SerializeField] private float environmentMedian = 25;
+    //[SerializeField] private float bodyMedian = 37;
 
     public AnimationCurve curve;
-    [Range(0, 1)] public float t = 0;
-    public float value;
     
     private Desert_TemperatureCycle temperatureScript;
     private Player_Hydration hydrationScript;
@@ -31,12 +29,19 @@ public class Player_CoreTemperature : MonoBehaviour
     {
         temperatureScript = GameObject.FindGameObjectWithTag("DesertManager").GetComponent<Desert_TemperatureCycle>();
         hydrationScript = GetComponent<Player_Hydration>();
+
+        Keyframe[] keys = curve.keys;
+        keys[0].value = criticalMin - 1;
+        keys[1].value = idealMin;
+        keys[2].value = idealMax;
+        keys[3].value = criticalMax + 1;
+        curve.keys = keys;
+        
         UpdateUI();
     }
 
     private void Update()
     {
-        value = curve.Evaluate(t);
         UpdateTemperature();
 
         if (Time.time > lastUpdate + updateDelay)
