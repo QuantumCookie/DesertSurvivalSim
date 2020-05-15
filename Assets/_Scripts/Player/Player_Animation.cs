@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player_Animation : MonoBehaviour
 {
     public string runParameter = "IsRunning";
-    public string swingParameter = "IsSwinging";
+    public string swingParameter = "Swing";
     public string dieParameter = "Die";
     
     private Animator anim;
     private int anim_IsRunning;
-    private int anim_IsSwinging;
+    private int anim_Swing;
     private int anim_Die;
 
     private GameManager_Master gameManagerMaster;
@@ -27,7 +27,7 @@ public class Player_Animation : MonoBehaviour
         
         anim = GetComponent<Animator>();
         anim_IsRunning = Animator.StringToHash(runParameter);
-        anim_IsSwinging = Animator.StringToHash(swingParameter);
+        anim_Swing = Animator.StringToHash(swingParameter);
         anim_Die = Animator.StringToHash(dieParameter);
     }
 
@@ -41,9 +41,9 @@ public class Player_Animation : MonoBehaviour
         anim.SetTrigger(anim_Die);
     }
 
-    public void SetSwinging(bool flag)
+    public void SetSwinging()
     {
-        anim.SetBool(anim_IsSwinging, flag);
+        anim.SetTrigger(anim_Swing);
     }
 
     private void OnDisable()

@@ -12,6 +12,9 @@ public class Player_MineResource : MonoBehaviour
 
     public GameObject balloonParent;
     public GameObject balloonPrefab;
+
+    private bool isSwinging;
+    private Collider collider;
     
     private void Start()
     {
@@ -20,18 +23,24 @@ public class Player_MineResource : MonoBehaviour
         equipment = GetComponent<Player_EquipmentManager>();
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         playerAnimation = GetComponent<Player_Animation>();
+        isSwinging = false;
+        collider = null;
     }
 
     private void Update()
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
+
+        if (isSwinging) return;
         
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log("Pressed E");
             if (equipment.CanMine(itemDetector.resourceType))
             {
-                playerAnimation.SetSwinging(true);
+                isSwinging = true;
+                collider = itemDetector.collider;
+                playerAnimation.SetSwinging();
             }
             else if (itemDetector.itemType != ItemType.Null)
             {
@@ -52,9 +61,9 @@ public class Player_MineResource : MonoBehaviour
 
     public void ResetSwing()
     {
-        playerAnimation.SetSwinging(false);
+        isSwinging = false;
         
-        Resource_Master resource = itemDetector.collider.transform.root.GetComponent<Resource_Master>();
+        Resource_Master resource = collider.transform.root.GetComponent<Resource_Master>();
         
         if(resource.ApplyDamage(equipment.damage))
         {
@@ -65,5 +74,7 @@ public class Player_MineResource : MonoBehaviour
             
             resource.CallMineComplete();
         }
+
+        collider = null;
     }
 }

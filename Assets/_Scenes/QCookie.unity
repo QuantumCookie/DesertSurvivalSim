@@ -1072,6 +1072,10 @@ PrefabInstance:
       propertyPath: craftingMenuUI
       value: 
       objectReference: {fileID: 274905586}
+    - target: {fileID: 771544309, guid: 097a9e15393de45499bea5f0a108bb0b, type: 3}
+      propertyPath: swingParameter
+      value: Swing
+      objectReference: {fileID: 0}
     - target: {fileID: 1958801667, guid: 097a9e15393de45499bea5f0a108bb0b, type: 3}
       propertyPath: interactPrompt
       value: 
