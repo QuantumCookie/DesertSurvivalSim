@@ -7,6 +7,7 @@ public class Player_Inventory : MonoBehaviour
     public InventoryObject inventory;
 
     private Player_UseItem useHandler;
+    private Player_EquipmentManager equipmentManager;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Player_Inventory : MonoBehaviour
     private void Initialize()
     {
         useHandler = GetComponent<Player_UseItem>();
+        equipmentManager = GetComponent<Player_EquipmentManager>();
     }
 
     private void CreateInventory()
@@ -124,6 +126,16 @@ public class Player_Inventory : MonoBehaviour
             useHandler.UseItem(slot.item);
             inventory.items[i].Decrement();
             Debug.Log("Consumed " + slot.item.name);
+        }
+        else if (slot.item.itemType == ItemType.Equipment)
+        {
+            EquipmentObject replacement = equipmentManager.Equip((EquipmentObject) slot.item);
+            if (replacement == null) ClearSlot(i);
+            else
+            {
+                inventory.items[i].item = replacement;
+                inventory.items[i].amount = 1;
+            }
         }
     }
 

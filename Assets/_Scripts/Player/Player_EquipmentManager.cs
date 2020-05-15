@@ -23,7 +23,11 @@ public class Player_EquipmentManager : MonoBehaviour
         list = new List<Equipment_Master>(equipmentRoot.GetComponentsInChildren<Equipment_Master>());
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         
-        if(list.Count == 0) return;
+        if(list.Count == 0)
+        {
+            activeIndex = -1;
+            return;
+        }
 
         for (int i = 0; i < list.Count; i++)
         {
@@ -51,6 +55,34 @@ public class Player_EquipmentManager : MonoBehaviour
         list[activeIndex].gameObject.SetActive(false);
         activeIndex = (activeIndex + 1) % list.Count;
         list[activeIndex].gameObject.SetActive(true);
+    }
+
+    public EquipmentObject Equip(EquipmentObject eq)
+    {
+        if (activeIndex == -1)
+        {
+            list.Add(Instantiate(eq.prefab).GetComponent<Equipment_Master>());
+            activeIndex = 0;
+            return null;
+        }
+        else
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].equipment.inventoryItem == eq)
+                {
+                    list[activeIndex].gameObject.SetActive(false);
+                    list[i].gameObject.SetActive(true);
+                    int x = activeIndex;
+                    activeIndex = i;
+                    return list[x].equipment.inventoryItem;
+                }
+            }
+            
+            list.Add(Instantiate(eq.prefab).GetComponent<Equipment_Master>());
+            activeIndex = list.Count - 1;
+            return null;
+        }
     }
 
     public bool CanMine(ResourceType type)

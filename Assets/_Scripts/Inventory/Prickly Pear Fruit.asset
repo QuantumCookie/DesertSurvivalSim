@@ -17,4 +17,6 @@ MonoBehaviour:
   description: 
   itemType: 2
   stackSize: 5
-  attributes: []
+  attributes:
+  - type: 0
+    value: 10

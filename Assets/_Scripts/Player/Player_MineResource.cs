@@ -9,6 +9,9 @@ public class Player_MineResource : MonoBehaviour
     private GameManager_Master gameManagerMaster;
     private Player_EquipmentManager equipment;
     private Player_Animation playerAnimation;
+
+    public GameObject balloonParent;
+    public GameObject balloonPrefab;
     
     private void Start()
     {
@@ -37,6 +40,10 @@ public class Player_MineResource : MonoBehaviour
                 if(item.canPickup)
                 {
                     inventory.AddItem(item.item, item.quantity);
+                    
+                    Balloon b = Instantiate(balloonPrefab, Camera.main.WorldToScreenPoint(item.transform.position), Quaternion.identity, balloonParent.transform).GetComponent<Balloon>();
+                    b.SetText("+" + item.quantity + " " + item.name);
+                    
                     item.CallOnPickup();
                 }
             }
@@ -52,6 +59,10 @@ public class Player_MineResource : MonoBehaviour
         if(resource.ApplyDamage(equipment.damage))
         {
             inventory.AddItem(resource.data.yield, resource.data.quantity);
+            
+            Balloon b = Instantiate(balloonPrefab, Camera.main.WorldToScreenPoint(resource.transform.position), Quaternion.identity, balloonParent.transform).GetComponent<Balloon>();
+            b.SetText("+" + resource.data.quantity + " " + resource.data.yield.name);
+            
             resource.CallMineComplete();
         }
     }
