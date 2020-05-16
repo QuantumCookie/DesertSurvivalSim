@@ -8,6 +8,7 @@ TagManager:
   - DesertManager
   - GameManager
   - Spawner
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Resources
   - Environment
   - MinMap
-  - 
+  - Bonfire
   - 
   - 
   - 

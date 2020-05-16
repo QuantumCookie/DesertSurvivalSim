@@ -13,7 +13,7 @@ public class Player_DetectItem : MonoBehaviour
     [SerializeField] private float scanRadius = 0.7f;
     [SerializeField] private LayerMask scanLayer;//for resources and items
     public GameObject interactPrompt;
-    
+
     private ResourceType _resourceType;
     private ItemType _itemType;
     private Collider _collider;
@@ -21,7 +21,8 @@ public class Player_DetectItem : MonoBehaviour
     public ResourceType resourceType => _resourceType;
     public ItemType itemType => _itemType;
     public Collider collider => _collider;
-    
+    public   Resource_Master master;
+
     private GameManager_Master gameManagerMaster;
 
     private void Start()
@@ -34,7 +35,7 @@ public class Player_DetectItem : MonoBehaviour
     private void Update()
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
-        
+
         Scan();
         HandleResult();
     }
@@ -50,7 +51,7 @@ public class Player_DetectItem : MonoBehaviour
             float dot = Vector3.Dot(toCollider, transform.forward);
 
 //            Debug.Log("Found something");
-            
+
             if (dot > 0.5f)
             {
                 _collider = hit[0];
@@ -71,8 +72,8 @@ public class Player_DetectItem : MonoBehaviour
             _collider = null;
         }*/
     }
-    
-    private void HandleResult()
+
+    public  void HandleResult()
     {
         if (_collider == null)
         {
@@ -83,30 +84,30 @@ public class Player_DetectItem : MonoBehaviour
         }
         else
         {
-            Resource_Master master = _collider.transform.root.GetComponent<Resource_Master>();//For this to work item / resource should be a root object in the scene
+             master = _collider.transform.root.GetComponent<Resource_Master>();//For this to work item / resource should be a root object in the scene
 
             if (master)
             {
                 _resourceType = master.data.type;
-//                Debug.Log("Looking at " + _resourceType);
+          //    Debug.Log("Looking at " + resourceType);
             }
             else
             {
                 _resourceType = ResourceType.Null;
             }
 
-            Item_Master item = _collider.transform.root.GetComponent<Item_Master>();    
-            
+            Item_Master item = _collider.transform.root.GetComponent<Item_Master>();
+
             if (item)
             {
                 _itemType = item.item.itemType;
-//                Debug.Log("Looking at " + _resourceType);
+            //    Debug.Log("Looking at " + _resourceType);
             }
             else
             {
                 _itemType = ItemType.Null;
             }
-            
+
             interactPrompt.SetActive(true);
             interactPrompt.transform.position = Camera.main.WorldToScreenPoint(_collider.transform.root.position);
         }
@@ -119,7 +120,7 @@ public class Player_DetectItem : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * scanDistance);*/
         //Gizmos.DrawWireSphere(transform.position + transform.forward * scanDistance, scanRadius);
-        
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, scanRadius);
     }

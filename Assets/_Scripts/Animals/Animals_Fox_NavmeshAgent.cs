@@ -9,6 +9,10 @@ private NavMeshAgent fox_agent;
 private GameObject player;
 private bool Is_Following;
 private Animator anim;
+[HideInInspector]
+public GameObject Audio_manager;
+[HideInInspector]
+public Audio_manager audio_manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +20,8 @@ private Animator anim;
         fox_agent = transform.GetComponent<NavMeshAgent>();
         anim = transform.GetComponent<Animator>();
         anim.SetBool("Moving",false);
+        Audio_manager = GameObject.FindWithTag("Audio");
+        audio_manager = Audio_manager.transform.GetComponent<Audio_manager>();
     }
     void Update(){
       if(Is_Following==true){
@@ -28,7 +34,9 @@ private Animator anim;
     {
         if(col.gameObject.tag=="Player"){
           Is_Following = true;
-        
+          audio_manager.Source.clip = audio_manager.Fox_laugh;
+          audio_manager.Source.Play();
+
     }
 
   }

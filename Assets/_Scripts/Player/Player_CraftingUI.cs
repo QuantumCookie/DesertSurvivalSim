@@ -6,11 +6,17 @@ public class Player_CraftingUI : MonoBehaviour
 {
     public GameObject craftingMenuUI;
     private GameManager_Master gameManagerMaster;
-    
+    [HideInInspector]
+    public GameObject Audio_manager;
+    [HideInInspector]
+    public Audio_manager audio_manager;
+
     private void Start()
     {
         Initialize();
         gameManagerMaster.OnGameOver += DisableMenu;
+        Audio_manager = GameObject.FindWithTag("Audio");
+        audio_manager = Audio_manager.transform.GetComponent<Audio_manager>();
     }
 
     private void Initialize()
@@ -26,6 +32,9 @@ public class Player_CraftingUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             ToggleCraftingMenu();
+            audio_manager.Source.clip = audio_manager.Crafting;
+            audio_manager.Source.Play();
+          
         }
     }
 

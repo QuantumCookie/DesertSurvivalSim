@@ -68,12 +68,9 @@ public class Player_CoreTemperature : MonoBehaviour
 
         float delta = InverseLerp(envMin, envMax, envTemp);
         float hydrationPercent = hydrationScript.percent * 0.2f;
-        delta = Mathf.Clamp(delta, hydrationPercent, 1 - hydrationPercent);
+        delta = Mathf.Clamp(delta, 0, 1 - hydrationPercent);
 
         _coreTemperature = curve.Evaluate(delta);
-        
-        /*float f = hydrationScript.percent * 0.5f;
-        _coreTemperature = Lerp(criticalMin, criticalMax, delta * delta * delta);*/
     }
 
     private void UpdateUI()

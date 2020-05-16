@@ -11,6 +11,7 @@ public class Player_InventoryUI : MonoBehaviour
     {
         gameManagerMaster = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager_Master>();
         inventoryUI.SetActive(false);
+
     }
 
     private void Update()
@@ -20,6 +21,7 @@ public class Player_InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
+          
         }
     }
 }

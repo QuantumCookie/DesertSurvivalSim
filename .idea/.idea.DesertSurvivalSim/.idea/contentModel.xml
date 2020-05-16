@@ -4,9 +4,16 @@
     <e p="C:\Users\Deepiga CK\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Deepiga CK\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_DesertSurvivalSim.1728180015.00" t="ExcludeRecursive" />
     <e p="D:\Unity Projects\DesertSurvivalSim" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_Scripts" t="Include">
+          <e p="Animals" t="Include">
+            <e p="Animals_Attack.cs" t="Include" />
+            <e p="Animals_Fox_NavmeshAgent.cs" t="Include" />
+            <e p="Animals_Spawner.cs" t="Include" />
+            <e p="Animals_Take_Damage.cs" t="Include" />
+          </e>
           <e p="Crafting" t="Include">
             <e p="CraftableItem.cs" t="Include" />
             <e p="DisplayCraftingSystem.cs" t="Include" />
@@ -49,11 +56,14 @@
           <e p="Player" t="Include">
             <e p="Player_Animation.cs" t="Include" />
             <e p="Player_Camera.cs" t="Include" />
+            <e p="Player_Cold.cs" t="Include" />
             <e p="Player_CoreTemperature.cs" t="Include" />
             <e p="Player_Crafting.cs" t="Include" />
             <e p="Player_CraftingUI.cs" t="Include" />
             <e p="Player_DetectItem.cs" t="Include" />
             <e p="Player_EquipmentManager.cs" t="Include" />
+            <e p="Player_FeedBonfire.cs" t="Include" />
+            <e p="Player_Health.cs" t="Include" />
             <e p="Player_Hydration.cs" t="Include" />
             <e p="Player_Inventory.cs" t="Include" />
             <e p="Player_InventoryUI.cs" t="Include" />
@@ -75,6 +85,22 @@
           <e p="UniformPoissonDiskSampler.cs" t="Include" />
           <e p="Utility" t="Include">
             <e p="Balloon.cs" t="Include" />
+            <e p="Bonfire.cs" t="Include" />
+          </e>
+        </e>
+        <e p="NavMeshComponents" t="Include">
+          <e p="Editor" t="Include">
+            <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+            <e p="NavMeshLinkEditor.cs" t="Include" />
+            <e p="NavMeshModifierEditor.cs" t="Include" />
+            <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+            <e p="NavMeshSurfaceEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="NavMeshLink.cs" t="Include" />
+            <e p="NavMeshModifier.cs" t="Include" />
+            <e p="NavMeshModifierVolume.cs" t="Include" />
+            <e p="NavMeshSurface.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
