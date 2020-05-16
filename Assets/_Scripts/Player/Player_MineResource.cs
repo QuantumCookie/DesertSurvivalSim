@@ -15,7 +15,11 @@ public class Player_MineResource : MonoBehaviour
 
     private bool isSwinging;
     private Collider collider;
-    
+    [HideInInspector]
+    public GameObject Audio_manager;
+    [HideInInspector]
+    public Audio_manager audio_manager;
+
     private void Start()
     {
         itemDetector = GetComponent<Player_DetectItem>();
@@ -25,6 +29,8 @@ public class Player_MineResource : MonoBehaviour
         playerAnimation = GetComponent<Player_Animation>();
         isSwinging = false;
         collider = null;
+        Audio_manager = GameObject.FindWithTag("Audio");
+        audio_manager = Audio_manager.transform.GetComponent<Audio_manager>();
     }
 
     private void Update()
@@ -32,15 +38,25 @@ public class Player_MineResource : MonoBehaviour
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
 
         if (isSwinging) return;
-        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log("Pressed E");
-            if (equipment.CanMine(itemDetector.resourceType))
+            if (equipment.CanMine(itemDetector.resourceType)&&(itemDetector.master.data.type == ResourceType.Tree ||itemDetector.master.data.type == ResourceType.Cactus))
             {
                 isSwinging = true;
                 collider = itemDetector.collider;
                 playerAnimation.SetSwinging();
+                audio_manager.Source.clip = audio_manager.Wood_chopping;
+                audio_manager.Source.Play();
+            }
+            else if (equipment.CanMine(itemDetector.resourceType)&&(itemDetector.master.data.type == ResourceType.Rock ))
+            {
+                isSwinging = true;
+                collider = itemDetector.collider;
+                playerAnimation.SetSwinging();
+                audio_manager.Source.clip = audio_manager.Rock_breaking;
+                audio_manager.Source.Play();
             }
             else if (itemDetector.itemType != ItemType.Null)
             {
@@ -49,10 +65,10 @@ public class Player_MineResource : MonoBehaviour
                 if(item.canPickup)
                 {
                     inventory.AddItem(item.item, item.quantity);
-                    
+
                     Balloon b = Instantiate(balloonPrefab, Camera.main.WorldToScreenPoint(item.transform.position), Quaternion.identity, balloonParent.transform).GetComponent<Balloon>();
                     b.SetText("+" + item.quantity + " " + item.name);
-                    
+
                     item.CallOnPickup();
                 }
             }
@@ -62,16 +78,17 @@ public class Player_MineResource : MonoBehaviour
     public void ResetSwing()
     {
         isSwinging = false;
-        
+          audio_manager.Source.Stop();
+
         Resource_Master resource = collider.transform.root.GetComponent<Resource_Master>();
-        
+
         if(resource.ApplyDamage(equipment.damage))
         {
             inventory.AddItem(resource.data.yield, resource.data.quantity);
-            
+
             Balloon b = Instantiate(balloonPrefab, Camera.main.WorldToScreenPoint(resource.transform.position), Quaternion.identity, balloonParent.transform).GetComponent<Balloon>();
             b.SetText("+" + resource.data.quantity + " " + resource.data.yield.name);
-            
+
             resource.CallMineComplete();
         }
 
