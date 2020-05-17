@@ -1,21 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManger_TogglePause : MonoBehaviour
 {
     private GameManager_Master gameManagerMaster;
 
+    public GameObject instructions, credits;
+
     private void OnEnable()
     {
         gameManagerMaster = GetComponent<GameManager_Master>();
+        instructions.SetActive(false);
+        credits.SetActive(false);
     }
 
     private void Update()
     {
         if(!gameManagerMaster.isGameOver)
         {
-            if (Input.GetKeyUp(KeyCode.Escape)) TogglePause();
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                if (instructions.activeSelf || credits.activeSelf)
+                {
+                    instructions.SetActive(false);
+                    credits.SetActive(false);
+                }
+                else
+                {
+                    TogglePause();   
+                }
+            }
         }
     }
 
@@ -37,26 +53,25 @@ public class GameManger_TogglePause : MonoBehaviour
 
     public void Instructions()
     {
-        //Show instructions panel
-    }
-
-    public void Settings()
-    {
-        //Show settings
+        instructions.SetActive(true);
     }
 
     public void MainMenu()
     {
-        //Return to main menu
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
     {
-        //Quit
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
     
     public void Credits()
     {
-        //Show credits
+        credits.SetActive(true);
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Spawner
   - Audio
   - UI
+  - Bonfire
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Environment
   - MinMap
   - Bonfire
-  - 
+  - PostProcessing
   - 
   - 
   - 

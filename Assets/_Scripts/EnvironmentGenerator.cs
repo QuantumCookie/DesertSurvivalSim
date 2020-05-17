@@ -7,8 +7,6 @@ using UnityEngine;
 public class EnvironmentGenerator : MonoBehaviour
 {
     public LayerMask groundMask;
-    public LayerMask resourceMask;
-    public LayerMask environmentPropMask;
 
     [Header("Tree Cluster")] [Space] public Cluster treeCluster;
     [Header("Cactus Cluster")] [Space] public Cluster cactusCluster;
