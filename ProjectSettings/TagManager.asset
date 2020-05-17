@@ -9,7 +9,7 @@ TagManager:
   - GameManager
   - Spawner
   - Audio
-  - Bonfire
+  - UI
   layers:
   - Default
   - TransparentFX
