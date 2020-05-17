@@ -26,8 +26,15 @@ public Audio_manager audio_manager;
     void Update(){
       if(Is_Following==true){
            fox_agent.SetDestination(player.transform.position);
-             anim.SetBool("Moving",false);
+             anim.SetBool("Moving",true);
       }
+      /*else
+      {
+          Vector3 randomDestination = transform.position + Random.insideUnitSphere * 10f;
+          randomDestination.y = transform.position.y;
+          fox_agent.SetDestination(randomDestination);
+          anim.SetBool("Moving",true);    
+      }*/
     }
     // Update is called once per frame
     void OnTriggerEnter(Collider col)

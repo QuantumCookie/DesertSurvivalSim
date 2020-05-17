@@ -21,7 +21,7 @@ public class Player_DetectItem : MonoBehaviour
     public ResourceType resourceType => _resourceType;
     public ItemType itemType => _itemType;
     public Collider collider => _collider;
-    public   Resource_Master master;
+    [HideInInspector] public Resource_Master master;
 
     private GameManager_Master gameManagerMaster;
 

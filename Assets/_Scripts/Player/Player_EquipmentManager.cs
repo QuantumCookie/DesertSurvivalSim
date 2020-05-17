@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_EquipmentManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player_EquipmentManager : MonoBehaviour
     private bool locked;
 
     public float damage => list[activeIndex].equipment.damage;
+
+    public Image toolDisplay;
     
     private void Start()
     {
@@ -37,6 +40,8 @@ public class Player_EquipmentManager : MonoBehaviour
         list[0].gameObject.SetActive(true);
         activeIndex = 0;
         
+        UpdateDisplay();
+        
         locked = false;
     }
 
@@ -44,9 +49,10 @@ public class Player_EquipmentManager : MonoBehaviour
     {
         if(gameManagerMaster.isGamePaused || gameManagerMaster.isGameOver)return;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && activeIndex != -1)
         {
             CycleEquipment();
+            UpdateDisplay();
         }
     }
 
@@ -57,6 +63,11 @@ public class Player_EquipmentManager : MonoBehaviour
         list[activeIndex].gameObject.SetActive(true);
     }
 
+    private void UpdateDisplay()
+    {
+        toolDisplay.sprite = list[activeIndex].equipment.inventoryItem.displaySprite;
+    }
+    
     public EquipmentObject Equip(EquipmentObject eq)
     {
         if (activeIndex == -1)

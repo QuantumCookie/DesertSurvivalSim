@@ -58,6 +58,14 @@ public class Player_MineResource : MonoBehaviour
                 audio_manager.Source.clip = audio_manager.Rock_breaking;
                 audio_manager.Source.Play();
             }
+            else if (itemDetector.master != null && itemDetector.master.GetComponent<Animals_Attack>())
+            {
+                isSwinging = true;
+                collider = itemDetector.collider;
+                playerAnimation.SetSwinging();
+                audio_manager.Source.clip = audio_manager.Wood_chopping;
+                audio_manager.Source.Play();
+            }
             else if (itemDetector.itemType != ItemType.Null)
             {
                 Item_Master item = itemDetector.collider.transform.root.GetComponent<Item_Master>();
@@ -67,7 +75,7 @@ public class Player_MineResource : MonoBehaviour
                     inventory.AddItem(item.item, item.quantity);
 
                     Balloon b = Instantiate(balloonPrefab, Camera.main.WorldToScreenPoint(item.transform.position), Quaternion.identity, balloonParent.transform).GetComponent<Balloon>();
-                    b.SetText("+" + item.quantity + " " + item.name);
+                    b.SetText("+" + item.quantity + " " + item.item.name);
 
                     item.CallOnPickup();
                 }

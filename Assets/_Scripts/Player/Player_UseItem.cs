@@ -23,6 +23,10 @@ public class Player_UseItem : MonoBehaviour
                 {
                     playerHydration.Replenish(i.value);
                 }
+                else if (i.type == ItemAttributeType.Damage)
+                {
+                    playerHydration.GetComponent<Player_Health>().Add(i.value);
+                }
             }
         }
     }

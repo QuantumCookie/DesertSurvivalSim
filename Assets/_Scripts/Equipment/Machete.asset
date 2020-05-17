@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Machete
   m_EditorClassIdentifier: 
   id: 0
-  prefab: {fileID: 7599682281949317979, guid: 14cd86ed7ca529345b32c4f0197ed064, type: 3}
+  inventoryItem: {fileID: 11400000, guid: 26269add87a05b340bf3eac6d1154833, type: 2}
   damage: 10
   harvests: 02000000

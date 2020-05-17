@@ -5,22 +5,25 @@ using UnityEngine;
 public class Player_Cold : MonoBehaviour
 {
     private float maxCold = 100f;
+    public float _maxCold => maxCold;
     private float cold = 0f;
+    public float _cold => cold;
 
-    [SerializeField] private float threshold = 33f;
+    [SerializeField] private float threshold = 35f;
+    [SerializeField] private float hotThreshold = 42f;
     
     [SerializeField] private float coldBuildupRate = 0.1f;
     [SerializeField] private float sunHeatRate = 5f;
     [SerializeField] private float fireHeatRate = 10f;
 
-    [SerializeField] private float bonfireRequiredRadius;
-    [SerializeField] private LayerMask bonfireLayer;
     [SerializeField] private GameObject coldUI;
     
     private Player_CoreTemperature coreTemp;
     private Player_DetectItem itemDetector;
     private GameManager_Master gameManagerMaster;
 
+    public Bonfire bonfire;
+    
     private void Start()
     {
         Initialize();
@@ -43,14 +46,14 @@ public class Player_Cold : MonoBehaviour
 
     private void UpdateCold()
     {
-        if (coreTemp.coreTemperature < threshold)
+        if (coreTemp.coreTemperature < threshold || coreTemp.coreTemperature > hotThreshold)
         {
             cold += coldBuildupRate * Time.deltaTime;
             
             if (cold > maxCold)
             {
                 cold = maxCold;
-                gameManagerMaster.CallGameOverEvent();
+                //gameManagerMaster.CallGameOverEvent();
             }
         }
         else
@@ -73,10 +76,9 @@ public class Player_Cold : MonoBehaviour
 
         coldUI.transform.localScale = scale;
     }
-    
+
     private bool CheckBonfire()
     {
-        return false;
-        return (Physics.OverlapSphere(transform.position, bonfireRequiredRadius, bonfireLayer).Length > 0);
+        return Vector3.Distance(transform.position, bonfire.transform.position) < 5f && bonfire.isBurning;
     }
 }

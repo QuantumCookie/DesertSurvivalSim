@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
   id: 1
-  prefab: {fileID: 6441461168396458949, guid: 934ffd645e8faea409c7c09caf159e7f, type: 3}
+  inventoryItem: {fileID: 11400000, guid: 59da5a908c46d85438804182078727e6, type: 2}
   damage: 20
   harvests: 00000000

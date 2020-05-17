@@ -14,6 +14,9 @@
             <e p="Animals_Spawner.cs" t="Include" />
             <e p="Animals_Take_Damage.cs" t="Include" />
           </e>
+          <e p="Audio" t="Include">
+            <e p="Audio_manager.cs" t="Include" />
+          </e>
           <e p="Crafting" t="Include">
             <e p="CraftableItem.cs" t="Include" />
             <e p="DisplayCraftingSystem.cs" t="Include" />
@@ -26,6 +29,7 @@
             <e p="Desert_ResourceGenerator.cs" t="Include" />
             <e p="Desert_TemperatureCycle.cs" t="Include" />
           </e>
+          <e p="Destroy.cs" t="Include" />
           <e p="EnvironmentGenerator.cs" t="Include" />
           <e p="Equipment" t="Include">
             <e p="Equipment_Master.cs" t="Include" />

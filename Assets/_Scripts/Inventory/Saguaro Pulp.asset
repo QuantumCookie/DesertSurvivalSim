@@ -20,5 +20,5 @@ MonoBehaviour:
   attributes:
   - type: 0
     value: 20
-  - type: 1
-    value: 0
+  - type: 2
+    value: 20

@@ -61,7 +61,8 @@ public class Player_Hydration : MonoBehaviour
 
         if (_currentHydration <= 0)
         {
-            gameManagerMaster.CallGameOverEvent();
+            _currentHydration = 0f;
+            //gameManagerMaster.CallGameOverEvent();
         }
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3342806714167170118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,9 @@ GameObject:
   - component: {fileID: 26015975495831402}
   - component: {fileID: 1205759352997050297}
   - component: {fileID: 1924434894}
-  m_Layer: 0
+  - component: {fileID: 7542779040723350719}
+  - component: {fileID: 2127897694098718001}
+  m_Layer: 9
   m_Name: Rigged_fox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 419564323873150403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.51, y: 0.51, z: 25.332}
-  m_LocalScale: {x: 0.13003986, y: 0.13003986, z: 0.13003986}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
   m_Children:
   - {fileID: 1092058008769539166}
   - {fileID: 2269405508143636414}
@@ -100,17 +102,17 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 4.34
   m_Speed: 7
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 270
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 11.36
   m_BaseOffset: 3.97
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 1
 --- !u!135 &779270084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -122,7 +124,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 0.13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1498546014525945539
 MonoBehaviour:
@@ -182,6 +184,31 @@ CapsuleCollider:
   m_Height: 11.94
   m_Direction: 1
   m_Center: {x: 0, y: 2.01, z: 0}
+--- !u!114 &7542779040723350719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419564323873150403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415eeea559f9a444e8343b8917696224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: e9f67f2659228bf47a7302f6fe201d8a, type: 2}
+--- !u!114 &2127897694098718001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419564323873150403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090b2f19dcccca4b9a409b39aecfc3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614542779877160390
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7008203260861792109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1816862537833728771}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 365061744511947878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7443301237308046343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail_End_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807253288565198587}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7684622066083532685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8406913400473339044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6722100783024269314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7286008437116794222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1019783052189109012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_L_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5974461023837418102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail_End_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175205062229094052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2620735000062156022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4479665545735702897}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackLeg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230672755053231797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackLeg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1491453108986134981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontLeg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370179091684918739}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontShin_L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7539862281823742185}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_R_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 759197829139718734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2373445959944312517}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 836401152391574504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2269405508143636414}
   - component: {fileID: 7130954265544030026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +887,7 @@ Transform:
   m_LocalRotation: {x: -0.7071069, y: 0.0000000021469064, z: -0.0000000014806436,
     w: 0.7071067}
   m_LocalPosition: {x: 2.2056525e-10, y: 8.5681684e-10, z: 8.009372e-10}
-  m_LocalScale: {x: 100.000015, y: 100, z: 100.000015}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 3713726277232109520}
   m_RootOrder: 1
@@ -950,7 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 834418030045554106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +1008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858018822252969713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontLeg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5750993407854450540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,7 +1070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3382966844601060319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3514352691416687551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1106,7 +1133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4613438177006519056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackShin_R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092058008769539166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1168,7 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3435740319319816077}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ear_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

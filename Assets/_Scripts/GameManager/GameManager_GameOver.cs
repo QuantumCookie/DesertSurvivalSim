@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager_GameOver : MonoBehaviour
@@ -27,6 +28,7 @@ public class GameManager_GameOver : MonoBehaviour
     {
         gameManagerMaster = GetComponent<GameManager_Master>();
         dayNight = GameObject.FindGameObjectWithTag("DesertManager").GetComponent<Desert_DayNightCycle>();
+        gameOverUI.SetActive(false);
         cg = gameOverUI.GetComponent<CanvasGroup>();
         cg.alpha = 0;
         mainMenuButton.SetActive(false);
@@ -35,12 +37,13 @@ public class GameManager_GameOver : MonoBehaviour
 
     private void GameOver()
     {
+        gameOverUI.SetActive(true);
         StartCoroutine(Display());
     }
 
     private IEnumerator Display()
     {
-        while (cg.alpha < 0.95f)
+        while (cg.alpha < 0.99f)
         {
             cg.alpha = Mathf.SmoothDamp(cg.alpha, 1f, ref fadeVelocity, fadeDuration);
             yield return null;
@@ -52,6 +55,11 @@ public class GameManager_GameOver : MonoBehaviour
         yield return new WaitForSeconds(3f);
         
         mainMenuButton.SetActive(true);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     
     private void OnDisable()

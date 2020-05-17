@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Animals_Spawner : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Animals_Spawner : MonoBehaviour
     {
       if(no_of_foxes>0f){
       Invoke("SetOrigin",0f);
-      Instantiate(fox,RandomPoint,transform.rotation);
+      GameObject go = Instantiate(fox);
+          go.GetComponent<NavMeshAgent>().Warp(RandomPoint);
       no_of_foxes--;
       }
     }

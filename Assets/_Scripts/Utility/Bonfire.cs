@@ -46,4 +46,6 @@ public class Bonfire : MonoBehaviour
         light.gameObject.SetActive(!light.gameObject.activeSelf);    
         isActive = !isActive;
     }
+
+    public bool isBurning => isActive;
 }

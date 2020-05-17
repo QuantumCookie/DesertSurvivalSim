@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8590441794794195814}
   - component: {fileID: 3984112175693906263}
+  - component: {fileID: 8113595994052027301}
   - component: {fileID: 627599144028638467}
   - component: {fileID: 8697909478698093850}
   - component: {fileID: 8590441794794195865}
@@ -138,6 +139,9 @@ GameObject:
   - component: {fileID: 771544306}
   - component: {fileID: 771544307}
   - component: {fileID: 771544309}
+  - component: {fileID: 1528513647}
+  - component: {fileID: 1528513666}
+  - component: {fileID: 1528513667}
   m_Layer: 0
   m_Name: Test Player
   m_TagString: Player
@@ -177,6 +181,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!135 &8113595994052027301
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590441794794195810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &627599144028638467
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -240,7 +257,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   cameraSmoothTime: 0.01
   playerRotationSmoothing: 5
-  panZoomFactor: 3
+  panZoomFactor: 0
   miniMapCamera: {fileID: 0}
 --- !u!114 &2049618857
 MonoBehaviour:
@@ -272,6 +289,8 @@ MonoBehaviour:
   scanLayer:
     serializedVersion: 2
     m_Bits: 512
+  interactPrompt: {fileID: 0}
+  master: {fileID: 0}
 --- !u!114 &2155486622838527710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +303,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adbb7f7617ed354e86b1e5365338902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  balloonParent: {fileID: 0}
+  balloonPrefab: {fileID: 20384789965109945, guid: a8411deb25a177649be7624bd56c5903,
+    type: 3}
+  Audio_manager: {fileID: 0}
+  audio_manager: {fileID: 0}
 --- !u!114 &1958801669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748a3a4762ffba04aa37673eb83248b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSurvivalTime: 24
+  maxSurvivalTime: 2
   maxHydration: 100
+  _currentHydration: 100
   hydrationDisplay: {fileID: 0}
   updateDelay: 0.1
 --- !u!114 &9163563334540012228
@@ -340,12 +365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8754f96937dae842a1841b532054e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idealMax: 40
-  idealMin: 35
+  idealMax: 37.6
+  idealMin: 36.5
   criticalMax: 43
   criticalMin: 32
-  environmentMedian: 25
-  bodyMedian: 37
   curve:
     serializedVersion: 2
     m_Curve:
@@ -388,8 +411,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  t: 0
-  value: 0
   coreTempUI: {fileID: 0}
   updateDelay: 0.5
 --- !u!114 &3496368956389092042
@@ -442,6 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftingMenuUI: {fileID: 0}
+  Audio_manager: {fileID: 0}
+  audio_manager: {fileID: 0}
 --- !u!114 &771544309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,8 +478,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runParameter: IsRunning
-  swingParameter: IsSwinging
+  swingParameter: Swing
   dieParameter: Die
+--- !u!114 &1528513647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590441794794195810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14ac818f8523e24c93b387be181e05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  healthUI: {fileID: 0}
+  healthDrainOverlay: {fileID: 0}
+--- !u!114 &1528513666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590441794794195810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2cfe494c0ea9f4e98cd4b89461cb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: {fileID: 11400000, guid: dfd1861de77ed124086810c038e4c91e, type: 2}
+  balloon: {fileID: 20384789965109945, guid: a8411deb25a177649be7624bd56c5903, type: 3}
+  balloonParent: {fileID: 0}
+--- !u!114 &1528513667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590441794794195810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897aa4f85e4aa274eb72555f1c4420ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 33
+  coldBuildupRate: 2
+  sunHeatRate: 2.5
+  fireHeatRate: 5
+  coldUI: {fileID: 0}
 --- !u!1001 &2815483897028578671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -753,15 +823,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: 380b548a65966d14a8cae933968bb752, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 380b548a65966d14a8cae933968bb752, type: 3}
---- !u!4 &6049446208686927238 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5567330030375057852, guid: 380b548a65966d14a8cae933968bb752,
-    type: 3}
-  m_PrefabInstance: {fileID: 7011873254704901058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2609160186478641368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 380b548a65966d14a8cae933968bb752,
+    type: 3}
+  m_PrefabInstance: {fileID: 7011873254704901058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6049446208686927238 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5567330030375057852, guid: 380b548a65966d14a8cae933968bb752,
     type: 3}
   m_PrefabInstance: {fileID: 7011873254704901058}
   m_PrefabAsset: {fileID: 0}

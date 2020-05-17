@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   id: 0
-  prefab: {fileID: 2815483895751956704, guid: 2f4d009d67c9565439ac96aa994b430d, type: 3}
+  inventoryItem: {fileID: 11400000, guid: ae7c31c5b449a7b4c9ba32d701e2a772, type: 2}
   damage: 20
   harvests: 01000000
