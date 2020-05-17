@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/QCookie.unity
     guid: 178bad5f751f26140bd1efaa6b466744
+  - enabled: 1
+    path: Assets/_Scenes/Instructions.unity
+    guid: 4299497f1ecd6264ca8f04d8bf37b7ea
+  - enabled: 1
+    path: Assets/_Scenes/Settings.unity
+    guid: 11c592dcd71dba248be5b91d564a840a
+  - enabled: 1
+    path: Assets/_Scenes/Credits.unity
+    guid: aeb555aa60eae2b4ca1604f55255db90
   m_configObjects: {}

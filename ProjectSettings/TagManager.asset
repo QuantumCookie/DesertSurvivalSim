@@ -9,6 +9,7 @@ TagManager:
   - GameManager
   - Spawner
   - Audio
+  - UI
   layers:
   - Default
   - TransparentFX
