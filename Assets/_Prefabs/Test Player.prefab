@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748a3a4762ffba04aa37673eb83248b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSurvivalTime: 2
+  maxSurvivalTime: 24
   maxHydration: 100
   _currentHydration: 100
   hydrationDisplay: {fileID: 0}
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentRoot: {fileID: 1744618008}
+  toolDisplay: {fileID: 0}
 --- !u!114 &632143556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,10 +524,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 33
+  hotThreshold: 42.3
   coldBuildupRate: 2
   sunHeatRate: 2.5
   fireHeatRate: 5
   coldUI: {fileID: 0}
+  bonfire: {fileID: 0}
 --- !u!1001 &2815483897028578671
 PrefabInstance:
   m_ObjectHideFlags: 0
