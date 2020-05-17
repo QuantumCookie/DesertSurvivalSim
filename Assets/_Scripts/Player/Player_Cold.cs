@@ -46,21 +46,21 @@ public class Player_Cold : MonoBehaviour
 
     private void UpdateCold()
     {
-        if (coreTemp.coreTemperature < threshold || coreTemp.coreTemperature > hotThreshold)
+        if (CheckBonfire())
         {
-            cold += coldBuildupRate * Time.deltaTime;
-            
-            if (cold > maxCold)
-            {
-                cold = maxCold;
-                //gameManagerMaster.CallGameOverEvent();
-            }
+            cold = Mathf.Max(0, cold - fireHeatRate * Time.deltaTime);
         }
         else
         {
-            if (CheckBonfire())
+            if (coreTemp.coreTemperature < threshold || coreTemp.coreTemperature > hotThreshold)
             {
-                cold = Mathf.Max(0, cold - fireHeatRate * Time.deltaTime);
+                cold += coldBuildupRate * Time.deltaTime;
+            
+                if (cold > maxCold)
+                {
+                    cold = maxCold;
+                    //gameManagerMaster.CallGameOverEvent();
+                }
             }
             else
             {

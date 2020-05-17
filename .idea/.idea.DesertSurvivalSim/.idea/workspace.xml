@@ -2,14 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6547d08-d958-42f4-b660-2f4a09681ee0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesertSurvivalSim/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesertSurvivalSim/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bonfire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bonfire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EnvironmentGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EnvironmentGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManager_PauseMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManager_PauseMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManger_TogglePause.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManger_TogglePause.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/MainMenu/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/MainMenu/MainMenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Bucket.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Bucket.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Fox.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Fox.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Oasis.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Oasis.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/PlayerModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/PlayerModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Trap.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/Trap.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/maxtree_unnamed grass_003.max" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/maxtree_unnamed grass_003.max.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/maxtree_unnamed grass_003_mesh.max" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Models/maxtree_unnamed grass_003_mesh.max.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Patch.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Patch.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Player_In_menu.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Player_In_menu.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/TestDesert.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/TestDesert.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Instructions.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Instructions.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/QCookie.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/QCookie.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Settings.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Settings.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/Untitled-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/Untitled-1.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +53,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="40028" />
+          <entry key="cs" value="40053" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="40028" />
+          <entry key="C#" value="40053" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -94,25 +117,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-111">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+            <state relative-caret-position="689">
+              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
               <folding>
-                <marker date="1589735388518" expanded="false" signature="6:78" ph="..." />
-                <marker date="1589735388518" expanded="true" signature="120:2260" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="787:821" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="852:1093" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1120:1269" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1300:1928" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1399:1635" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1508:1625" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1648:1922" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1690:1793" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1810:1912" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="1961:2106" ph="{...}" />
-                <marker date="1589735388518" expanded="true" signature="2139:2258" ph="{...}" />
+                <marker date="1589743527707" expanded="false" signature="6:78" ph="..." />
+                <marker date="1589743527707" expanded="true" signature="120:2280" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="787:821" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="852:1093" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1120:1269" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1300:1948" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1334:1425" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1438:1942" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1545:1813" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1666:1799" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1830:1932" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="1981:2126" ph="{...}" />
+                <marker date="1589743527707" expanded="true" signature="2159:2278" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -160,10 +183,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/EnvironmentGenerator.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state relative-caret-position="-32">
               <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding>
                 <marker date="1589741642853" expanded="false" signature="6:121" ph="..." />
@@ -394,12 +417,12 @@
         <option value="$PROJECT_DIR$/Assets/_Scripts/Animals/Animals_Attack.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Player/Player_EquipmentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Player/Player_MineResource.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManager_PauseMenuUI.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Inventory/Scripts/Item_DestroyOnPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/MainMenu/MainMenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManger_TogglePause.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/EnvironmentGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs" />
       </list>
     </option>
   </component>
@@ -1034,28 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <marker date="1589735388518" expanded="false" signature="6:78" ph="..." />
-            <marker date="1589735388518" expanded="true" signature="120:2260" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="787:821" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="852:1093" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1120:1269" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1300:1928" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1399:1635" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1508:1625" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1648:1922" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1690:1793" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1810:1912" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="1961:2106" ph="{...}" />
-            <marker date="1589735388518" expanded="true" signature="2139:2258" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_Scripts/GameManager/GameManager_PauseMenuUI.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -1153,7 +1154,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_Scripts/EnvironmentGenerator.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="-32">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding>
             <marker date="1589741642853" expanded="false" signature="6:121" ph="..." />
@@ -1179,6 +1180,28 @@
             <marker date="1589741642853" expanded="true" signature="8858:9700" ph="{...}" />
             <marker date="1589741642853" expanded="true" signature="9768:9851" ph="{...}" />
             <marker date="1589741642853" expanded="true" signature="9897:10146" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Player/Player_Cold.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+          <folding>
+            <marker date="1589743527707" expanded="false" signature="6:78" ph="..." />
+            <marker date="1589743527707" expanded="true" signature="120:2280" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="787:821" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="852:1093" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1120:1269" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1300:1948" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1334:1425" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1438:1942" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1545:1813" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1666:1799" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1830:1932" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="1981:2126" ph="{...}" />
+            <marker date="1589743527707" expanded="true" signature="2159:2278" ph="{...}" />
           </folding>
         </state>
       </provider>
